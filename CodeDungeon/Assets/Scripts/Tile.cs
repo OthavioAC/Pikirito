@@ -8,6 +8,9 @@ public class Tile : MonoBehaviour
     [SerializeField] private Color baseColor, offsetColor;
     [SerializeField] private SpriteRenderer tileRenderer;
     [SerializeField] private GameObject highlight;
+
+    [SerializeField] private GameObject objeto;
+
     private SideBlock blockImage;
     public void Init(bool isOffset, GameObject gameObject)
     {

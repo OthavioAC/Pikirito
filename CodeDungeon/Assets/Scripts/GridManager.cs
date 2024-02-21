@@ -53,4 +53,9 @@ public class GridManager : MonoBehaviour
     {
         return height;
     }
+
+    public void SetLay(int[,] matrix,int sizeX,int sizeY)
+    {
+
+    }
 }
