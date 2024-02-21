@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Object = UnityEngine.Object;
 
 namespace UnityEditor.Tilemaps
 {
     internal class SceneViewOpenTilePaletteHelper : ScriptableSingleton<SceneViewOpenTilePaletteHelper>
     {
+        private class Styles
+        {
+            public static readonly GUIContent overlayTitleLabel = EditorGUIUtility.TrTextContent("Open Tile Palette");
+            public static readonly GUIContent openContent = EditorGUIUtility.IconContent("Tilemap Icon", "Open Tile Palette|Opens Tile Palette Window");
+        }
+
         private bool m_RegisteredEventHandlers;
         private bool m_IsSelectionValid;
-        private bool m_HighlightHelper;
-
-        internal static bool highlight
-        {
-            get => instance.m_HighlightHelper;
-            set => instance.m_HighlightHelper = value;
-        }
 
         [InitializeOnLoadMethod]
         private static void Initialize()
@@ -31,6 +31,7 @@ namespace UnityEditor.Tilemaps
             if (m_RegisteredEventHandlers)
                 return;
 
+            SceneView.duringSceneGui += DuringSceneGUI;
             Selection.selectionChanged += SelectionChanged;
             EditorApplication.hierarchyChanged += SelectionChanged;
 
@@ -41,6 +42,7 @@ namespace UnityEditor.Tilemaps
 
         private void OnDisable()
         {
+            SceneView.duringSceneGui -= DuringSceneGUI;
             Selection.selectionChanged -= SelectionChanged;
             EditorApplication.hierarchyChanged -= SelectionChanged;
             m_RegisteredEventHandlers = false;
@@ -49,7 +51,6 @@ namespace UnityEditor.Tilemaps
         internal static void OpenTilePalette()
         {
             GridPaintPaletteWindow.OpenTilemapPalette();
-            instance.m_HighlightHelper = false;
 
             var target = Selection.activeGameObject;
             if (target != null)
@@ -82,7 +83,7 @@ namespace UnityEditor.Tilemaps
 
         internal static bool IsActive()
         {
-            if (GridPaintingState.isEditing)
+            if (GridPaintPaletteWindow.isActive)
                 return false;
             return instance.m_IsSelectionValid;
         }
@@ -98,12 +99,29 @@ namespace UnityEditor.Tilemaps
             return false;
         }
 
+        private void DuringSceneGUI(SceneView sceneView)
+        {
+            if (!showInSceneViewActive || !IsActive())
+                return;
+
+            SceneViewOverlay.Window(Styles.overlayTitleLabel, OnSceneViewDisplayGUI, (int)SceneViewOverlay.Ordering.TilemapRenderer + 1, SceneViewOverlay.WindowDisplayOption.OneWindowPerTitle);
+        }
+
         private void SelectionChanged()
         {
-            var old = m_IsSelectionValid;
             m_IsSelectionValid = IsSelectionValid();
-            if (m_IsSelectionValid != old)
-                m_HighlightHelper = m_IsSelectionValid;
+        }
+
+        private void OnSceneViewDisplayGUI(Object displayTarget, SceneView sceneView)
+        {
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button(Styles.openContent, GUILayout.Height(32), GUILayout.Width(32)))
+            {
+                OpenTilePalette();
+            }
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.EndHorizontal();
         }
 
         internal class SceneViewOpenTilePaletteProperties
