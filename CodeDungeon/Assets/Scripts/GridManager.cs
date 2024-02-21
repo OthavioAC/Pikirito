@@ -43,4 +43,14 @@ public class GridManager : MonoBehaviour
         }
         return null;
     }
+
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int GetHeight()
+    {
+        return height;
+    }
 }
