@@ -33,6 +33,7 @@ public class GridManager : MonoBehaviour
             }
         }
         cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f,-10);
+        cam.GetComponent<CameraMovement>().Restart();
     }
 
     public Tile GetTilePosition(Vector2 pos)
@@ -54,8 +55,9 @@ public class GridManager : MonoBehaviour
         return height;
     }
 
-    public void SetLay(int[,] matrix,int sizeX,int sizeY)
+    public void SetLay(int[,] matrix)
     {
-
+        height = matrix.GetLength(1);
+        width = matrix.GetLength(0);
     }
 }

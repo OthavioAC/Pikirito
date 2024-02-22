@@ -17,6 +17,14 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
+#Outros
+CodeDungeon\Library
+CodeDungeon/Library
+CodeDungeon/Temp
+CodeDungeon\Temp
+
+
+
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 

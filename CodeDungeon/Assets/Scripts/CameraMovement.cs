@@ -74,4 +74,12 @@ public class CameraMovement : MonoBehaviour
 
         return new Vector3(newX, newY,targetPosition.z);
     }
+
+    public void Restart()
+    {
+        minSizeX = GridManager.transform.position.x - 3;
+        maxSizeX = GridManager.GetComponent<GridManager>().GetWidth() + 3;
+        minSizeY = GridManager.transform.position.y - 3;
+        maxSizeY = GridManager.GetComponent<GridManager>().GetHeight() + 3;
+    }
 }
