@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TileSetObject_0
+  m_Name: mt_ObjectTorch
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1551864673, guid: fafadd96ef88561418cfc4341dfaea8e, type: 3}
+  m_Sprite: {fileID: -2070313966, guid: fafadd96ef88561418cfc4341dfaea8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

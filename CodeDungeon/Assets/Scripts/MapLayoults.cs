@@ -16,30 +16,40 @@ public class MapLayoults : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int[,] layMatrix = setMatrixMap();
+        String[,] matrixMap = setMatrixMap(maptile);
+        String[,] matrixObject = setMatrixMap(mapobjects);
         maptile.ClearAllTiles();
         mapobjects.ClearAllTiles();  
-        gridManager.GetComponent<GridManager>().SetLay(layMatrix);
+        gridManager.GetComponent<GridManager>().SetLay(matrixMap,"Map");
+        gridManager.GetComponent<GridManager>().SetLay(matrixObject,"Objects");
         gridManager.SetActive(true);
     }
 
-    private int[,] setMatrixMap()
+    private String[,] setMatrixMap(Tilemap tilemap)
     {
         //reconhecer o tileset do mapa e voltar matrix
-        Tilemap tilemap = maptile;
         tilemap.CompressBounds();
         gridObject.transform.position = new Vector3(-tilemap.cellBounds.xMin, -tilemap.cellBounds.yMin, 0);
-        var maptilematrix = new int[tilemap.cellBounds.size.x, tilemap.cellBounds.size.y];
+        var maptilematrix = new String[tilemap.cellBounds.size.x, tilemap.cellBounds.size.y];
         for (int x = tilemap.cellBounds.xMin; x < tilemap.cellBounds.xMax; x++)
         {
             for (int y = tilemap.cellBounds.yMin; y < tilemap.cellBounds.yMax; y++)
             {
                 Vector3Int localPlace = new Vector3Int(x, y, (int)tilemap.transform.position.z);
                 Vector3 place = tilemap.CellToWorld(localPlace);
-                maptilematrix[((int)place.x),((int)place.y)] = tilemap.GetTile(localPlace).GetInstanceID();
+                if (tilemap.GetTile(localPlace) == null)
+                {
+                    maptilematrix[((int)place.x), ((int)place.y)] = "none";
+                }
+                else
+                {
+                    maptilematrix[((int)place.x), ((int)place.y)] = tilemap.GetTile(localPlace).name;
+                }
+                //Debug.Log(maptilematrix[((int)place.x), ((int)place.y)]);
             }
         }
         return maptilematrix;
     }
+
 
 }
