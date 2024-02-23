@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: id_EnemieGoblin1
+      name: id_EnemyGoblin1
       rect:
         serializedVersion: 2
         x: 64
@@ -249,7 +249,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       id_CharacterWarrior: 1551864673
-      id_EnemieGoblin1: -344182871
+      id_EnemyGoblin1: -344182871
       id_ObjectTorch: -2070313966
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

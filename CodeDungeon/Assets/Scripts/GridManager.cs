@@ -73,10 +73,10 @@ public class GridManager : MonoBehaviour
                         case "mt_Parede1": tileprefab = Resources.Load<Tile>("Map/Tile_Parede1"); break;
                         default: break;
                     }
-                    Debug.Log(tileprefab);
+                    //Debug.Log(tileprefab);
                     if (tileprefab!=null)
                     {
-                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y), Quaternion.identity);
+                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y,2), Quaternion.identity);
                         spawnedTile.name = $"Tile {x} {y}";
                         var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                         spawnedTile.Init(isOffset, blockRawImage);
@@ -89,9 +89,32 @@ public class GridManager : MonoBehaviour
             cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f, -10);
             cam.GetComponent<CameraMovement>().Restart();
         }
-        if (type == "Object")
+        if (type == "Objects")
         {
-
+            tilesObjects = new Dictionary<Vector2, Tile>();
+            for (int x = 0; x < matrix.GetLength(0); x++)
+            {
+                for (int y = 0; y < matrix.GetLength(1); y++)
+                {
+                    Tile tileprefab = null;
+                    switch (matrix[x, y])
+                    {
+                        case "mt_CharacterWarrior": tileprefab = Resources.Load<Tile>("Objects/Tile_CharacterWarrior"); break;
+                        case "mt_EnemyGoblin1": tileprefab = Resources.Load<Tile>("Objects/Tile_EnemyGoblin1"); break;
+                        case "mt_ObjectTorch1": tileprefab = Resources.Load<Tile>("Objects/Tile_ObjectTorch1"); break;
+                        default: break;
+                    }
+                    //Debug.Log(tileprefab);
+                    if (tileprefab != null)
+                    {
+                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y,1), Quaternion.identity);
+                        spawnedTile.name = $"Tile {x} {y}";
+                        var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
+                        spawnedTile.Init(isOffset, blockRawImage);
+                        tilesObjects[new Vector2(x, y)] = spawnedTile;
+                    }
+                }
+            }
         }
     }
 }
