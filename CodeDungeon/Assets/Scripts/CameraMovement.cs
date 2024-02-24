@@ -77,9 +77,9 @@ public class CameraMovement : MonoBehaviour
 
     public void Restart()
     {
-        minSizeX = GridManager.transform.position.x - 3;
+        minSizeX = GridManager.transform.position.x - 4;
         maxSizeX = GridManager.GetComponent<GridManager>().GetWidth() + 3;
-        minSizeY = GridManager.transform.position.y - 3;
+        minSizeY = GridManager.transform.position.y - 4;
         maxSizeY = GridManager.GetComponent<GridManager>().GetHeight() + 3;
     }
 }
