@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -175,13 +175,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: id_CharacterWarrior
+      name: id_CharacterKnight
       rect:
         serializedVersion: 2
         x: 0
-        y: 576
-        width: 64
-        height: 64
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a9afbd6b92a8746a150f401cf3323f
-      internalID: 1551864673
+      spriteID: 6cb603d020ddc3549957b6d8c0df0528
+      internalID: 1497483981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: id_EnemyGoblin1
+      name: id_EnemySkeleton
       rect:
         serializedVersion: 2
-        x: 64
-        y: 576
-        width: 64
-        height: 64
+        x: 32
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,8 +210,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80c0b47a7535e934bbf82b261c0c67ef
-      internalID: -344182871
+      spriteID: 516e715c81febc64bbb9772741da2aab
+      internalID: -1260274590
       vertices: []
       indices: 
       edges: []
@@ -220,10 +220,10 @@ TextureImporter:
       name: id_ObjectTorch
       rect:
         serializedVersion: 2
-        x: 128
-        y: 576
-        width: 64
-        height: 64
+        x: 64
+        y: 608
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,8 +231,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67ac067e5dbb1a440b08f9df101c0cf4
-      internalID: -2070313966
+      spriteID: 87a5882ed30a06c4abf15e432f715f37
+      internalID: 1553490541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: id_Chest
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2b8c8e6e22a5f47ae6a4faa2927493
+      internalID: -1654245825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: id_ChestOpen
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbdadb93d7fca2140aa3e88ebc9bddbf
+      internalID: -837545927
       vertices: []
       indices: 
       edges: []
@@ -248,9 +290,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      id_CharacterWarrior: 1551864673
-      id_EnemyGoblin1: -344182871
-      id_ObjectTorch: -2070313966
+      id_CharacterKnight: 1497483981
+      id_Chest: -1654245825
+      id_ChestOpen: -837545927
+      id_EnemySkeleton: -1260274590
+      id_ObjectTorch: 1553490541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

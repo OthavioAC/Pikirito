@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.3529412}
   m_FlipX: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7730202039203394451}
   - component: {fileID: 1525792865029770800}
   m_Layer: 0
-  m_Name: Tile_ObjectTorch1
+  m_Name: Tile_Parede1_Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1553490541, guid: fafadd96ef88561418cfc4341dfaea8e, type: 3}
+  m_Sprite: {fileID: 721787849, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,8 +187,12 @@ MonoBehaviour:
   offsetColor: {r: 1, g: 1, b: 1, a: 1}
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
-  spriteList: []
-  tileType: 
+  spriteList:
+  - {fileID: 1351122344, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: -1041712500, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: 721787849, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: -1158755853, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  tileType: Wall
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800
 BoxCollider2D:

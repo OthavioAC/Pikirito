@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private Color baseColor, offsetColor;
     [SerializeField] private SpriteRenderer tileRenderer;
     [SerializeField] private GameObject highlight;
+    [SerializeField] private Sprite[] spriteList;
+    [SerializeField] private string tileType = "";
 
     [SerializeField] private GameObject objeto;
 
@@ -29,4 +31,13 @@ public class Tile : MonoBehaviour
         highlight.SetActive(false);
     }
 
+    public string GetTileType()
+    {
+        return tileType;
+    }
+
+    public Sprite[] GetSprites()
+    {
+        return spriteList;
+    }
 }
