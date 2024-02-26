@@ -77,10 +77,11 @@ public class GridManager : MonoBehaviour
                     //Debug.Log(tileprefab);
                     if (tileprefab!=null)
                     {
-                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y,y), Quaternion.identity);
+                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y,0), Quaternion.identity);
                         spawnedTile.name = $"Tile {x} {y}";
                         var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                         spawnedTile.Init(isOffset, blockRawImage);
+                        spawnedTile.GetComponent<SpriteRenderer>().sortingOrder = 0;
                         tilesMap[new Vector2(x, y)] = spawnedTile;
                     }
                 }
@@ -142,7 +143,7 @@ public class GridManager : MonoBehaviour
                     if (bolright && !bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[0];
                     if (bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[1];
                     if (bolright && !bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[2];
-                    if (bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[3];
+                    if (bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[3];
                     if (!bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[4];
                     if (!bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[5];
                     if (!bolright && !bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[6];
@@ -173,10 +174,11 @@ public class GridManager : MonoBehaviour
                     //Debug.Log(tileprefab);
                     if (tileprefab != null)
                     {
-                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y, y), Quaternion.identity);
+                        var spawnedTile = Instantiate(tileprefab, new Vector3(x, y, 1), Quaternion.identity);
                         spawnedTile.name = $"Tile {x} {y}";
                         var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                         spawnedTile.Init(isOffset, blockRawImage);
+                        spawnedTile.GetComponent<SpriteRenderer>().sortingOrder = 1;
                         tilesObjects[new Vector2(x, y)] = spawnedTile;
                     }
                 }

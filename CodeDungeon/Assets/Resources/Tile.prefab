@@ -183,10 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab66dfd4c01d8384c964bdbc0ebc6b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.21584192, g: 0.8207547, b: 0.13550194, a: 1}
-  offsetColor: {r: 0.2091199, g: 0.7924528, b: 0.02616591, a: 1}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  offsetColor: {r: 1, g: 1, b: 1, a: 1}
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
+  spriteList: []
+  tileType: 
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800
 BoxCollider2D:
