@@ -99,6 +99,8 @@ MonoBehaviour:
   lightMax: 1
   OuterRadius: 2
   collightmax: 0.1
+  noiseConstant: 100
+  intensityConstant: 1.5
 --- !u!1 &6115829499003353705
 GameObject:
   m_ObjectHideFlags: 0

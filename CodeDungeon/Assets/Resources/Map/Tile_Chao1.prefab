@@ -187,8 +187,10 @@ MonoBehaviour:
   offsetColor: {r: 1, g: 1, b: 1, a: 1}
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
-  spriteList: []
-  tileType: 
+  spriteList:
+  - {fileID: -129466523, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: 821648247, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  tileType: Chao
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800
 BoxCollider2D:

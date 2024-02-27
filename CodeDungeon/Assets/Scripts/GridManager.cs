@@ -149,9 +149,14 @@ public class GridManager : MonoBehaviour
                     if (!bolright && !bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[6];
                     if (!bolright && !bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[7];
                 }
-            }   
+                if (tile.Value.GetComponent<Tile>().GetTileType() == "Chao")
+                {
+                    Sprite[] sprites = tile.Value.GetComponent<Tile>().GetSprites();
+                    if ((tile.Key.x+tile.Key.y) % 2 == 0) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[0];
+                    else tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                }   
 
-            height = matrix.GetLength(1);
+}           height = matrix.GetLength(1);
             width = matrix.GetLength(0);
             cam.transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f, -10);
             cam.GetComponent<CameraMovement>().Restart();
