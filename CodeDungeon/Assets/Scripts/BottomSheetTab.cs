@@ -14,8 +14,9 @@ public class BottomSheetTab : MonoBehaviour, IDragHandler, IEndDragHandler
         // Defina o tamanho do RectTransform para corresponder ao tamanho da câmera
 
         rectTransform.sizeDelta = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight*2);
-            
+        
         originalHeight = rectTransform.sizeDelta.y;
+        rectTransform.sizeDelta = new Vector2(Camera.main.pixelWidth, 300);
     }
 
     public void OnDrag(PointerEventData eventData)
