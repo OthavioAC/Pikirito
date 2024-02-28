@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1098344738587832735}
   - component: {fileID: 812840104560620295}
   m_Layer: 0
-  m_Name: Light 2D (1)
+  m_Name: LightCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,8 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4524dc02b050bb4c92ca5c7905ceaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightMin: 0.85
-  lightMax: 1
   OuterRadius: 2
   collightmax: 0.1
   noiseCoef: 4.44

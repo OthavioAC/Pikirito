@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 public class TochLight : MonoBehaviour
 {
-    [SerializeField] private float lightMin = 0.7f;
-    [SerializeField] private float lightMax = 1.0f;
+    //[SerializeField] private float lightMin = 0.7f;
+    //[SerializeField] private float lightMax = 1.0f;
     [SerializeField] private float OuterRadius = 2;
     [SerializeField] private float collightmax=10;
     [SerializeField] private float noiseCoef = 20;
@@ -37,9 +37,9 @@ public class TochLight : MonoBehaviour
             float intensity =  Mathf.PerlinNoise(xpoint,Time.time*noiseCoef);
             collight = 0;
             //float intensity = Random.Range(lightMin, lightMax);
-           // GetComponent<Light2D>().pointLightOuterRadius = intensity*OuterRadius;
             GetComponent<Light2D>().intensity = (intensity*intensityCoef)+Offset;
-            Debug.Log(intensity);
+            GetComponent<Light2D>().pointLightOuterRadius = GetComponent<Light2D>().intensity * OuterRadius;
+            //Debug.Log(intensity);
         }
     }
 }
