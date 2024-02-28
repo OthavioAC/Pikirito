@@ -1142,6 +1142,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.InternalAPIEngineBridge.024.csproj">
+      <Project>{48581154-DE2B-9DF7-BC75-A96DA568FE77}</Project>
+      <Name>Unity.InternalAPIEngineBridge.024</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.UIWidgets.Editor.csproj">
+      <Project>{75B775B8-AA82-86C8-9ABA-5701EAD39907}</Project>
+      <Name>Unity.UIWidgets.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.UIWidgets.csproj">
+      <Project>{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}</Project>
+      <Name>Unity.UIWidgets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
