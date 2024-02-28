@@ -5,10 +5,16 @@ public class BottomSheetTab : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private RectTransform rectTransform;
     private float originalHeight;
+    private Camera cam;
 
     void Start()
     {
+        // Obtenha a referência para o RectTransform
         rectTransform = GetComponent<RectTransform>();
+        // Defina o tamanho do RectTransform para corresponder ao tamanho da câmera
+
+        rectTransform.sizeDelta = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight*2);
+            
         originalHeight = rectTransform.sizeDelta.y;
     }
 
@@ -20,8 +26,8 @@ public class BottomSheetTab : MonoBehaviour, IDragHandler, IEndDragHandler
 
         rectTransform.sizeDelta += new Vector2(0, eventData.delta.y);
 
-        if (rectTransform.sizeDelta.y < 0)
-            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 0);
+        if (rectTransform.sizeDelta.y < 300)
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 300);
         else if (rectTransform.sizeDelta.y > originalHeight)
             rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, originalHeight);
     }
