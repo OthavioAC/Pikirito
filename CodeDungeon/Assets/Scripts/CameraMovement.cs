@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private GameObject GridManager;
     [SerializeField] private float zoomStep, minCamSize, maxCamSize;
     [SerializeField] private float minSizeX, maxSizeX, minSizeY, maxSizeY;
+    [SerializeField] private GameObject Block;
     private Vector3 dragOrigin;
 
 
@@ -26,23 +27,26 @@ public class CameraMovement : MonoBehaviour
 
     private void PanCamera()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!Block.GetComponent<SideBlock>().GetBlocked())
         {
-            dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+            }
 
-        if(Input.GetMouseButton(0))
-        {
-            Vector3 differ = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position = ClampCamera(cam.transform.position + differ);
-        }
-        if (Input.mouseScrollDelta.y>0)
-        {
-            ZoomIn();
-        }
-        if (Input.mouseScrollDelta.y<0)
-        {
-            ZoomOut();
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 differ = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
+                cam.transform.position = ClampCamera(cam.transform.position + differ);
+            }
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                ZoomIn();
+            }
+            if (Input.mouseScrollDelta.y < 0)
+            {
+                ZoomOut();
+            }
         }
     }
 

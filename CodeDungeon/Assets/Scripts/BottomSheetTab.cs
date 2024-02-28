@@ -1,38 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Unity.UIWidgets.material;
-using Unity.UIWidgets.widgets;
-using Unity.UIWidgets.animation; 
-using Unity.UIWidgets.foundation; 
-using System;
+using UnityEngine.EventSystems;
 
+public class BottomSheetTab : MonoBehaviour, IDragHandler, IEndDragHandler
+{
+    private RectTransform rectTransform;
+    private float originalHeight;
 
-
-public class BottomSheetTab : MonoBehaviour {
-    public class MyBottomSheet : StatefulWidget
+    void Start()
     {
-        public MyBottomSheet(Key key = null) : base(key) { }
-
-        public override State createState() => new _MyBottomSheetState();
+        rectTransform = GetComponent<RectTransform>();
+        originalHeight = rectTransform.sizeDelta.y;
     }
 
-    public class _MyBottomSheetState : State<MyBottomSheet>
+    public void OnDrag(PointerEventData eventData)
     {
-        public override Widget build(BuildContext context)
-        {
-            /*
-            return new BottomSheet(
-             animationController: new AnimationController(vsync: , duration: new TimeSpan(0, 0, 0, 0, 200)),
-             onClosing: () => { },
-             builder: (BuildContext context) => new Container(
-                 child: new Text("Hello, World!")
-             )
-         );
-            */
-        }
+        this.GetComponent<SideBlock>().SetBlocked(true);
+        if (rectTransform == null)
+            return;
+
+        rectTransform.sizeDelta += new Vector2(0, eventData.delta.y);
+
+        if (rectTransform.sizeDelta.y < 0)
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, 0);
+        else if (rectTransform.sizeDelta.y > originalHeight)
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, originalHeight);
     }
 
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        this.GetComponent<SideBlock>().SetBlocked(false);
+        // Debug.Log("kkk");
+        // You can add behavior for when the user stops dragging here
+    }
 }
+
 

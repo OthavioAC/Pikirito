@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SideBlock : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class SideBlock : MonoBehaviour
 {
     private bool blocked = false;
     public bool GetBlocked()
@@ -11,13 +11,8 @@ public class SideBlock : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         return blocked;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void SetBlocked(bool bloc)
     {
-        blocked = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        blocked = false;
+        blocked = bloc;
     }
 }
