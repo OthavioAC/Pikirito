@@ -139,7 +139,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e823fd26515dd924f96bc69a9e7c74c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 821648247, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4faad2e77f2c8244192d56dd9199d64c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,8 +188,8 @@ MonoBehaviour:
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
   spriteList:
-  - {fileID: -129466523, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 821648247, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: 21300000, guid: 4faad2e77f2c8244192d56dd9199d64c, type: 3}
+  - {fileID: 21300000, guid: 8504e839c4c32284d905cb8a024fcbad, type: 3}
   tileType: Chao
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800

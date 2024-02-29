@@ -141,11 +141,11 @@ public class GridManager : MonoBehaviour
                         }
                     }
                     if (bolright && !bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[0];
-                    if (bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[1];
-                    if (bolright && !bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[2];
-                    if (bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[3];
-                    if (!bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[4];
-                    if (!bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[5];
+                    if (bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[2];
+                    if (bolright && !bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[3];
+                    if (bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                    if (!bolright && bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[4];
+                    if (!bolright && bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[5];
                     if (!bolright && !bolleft && !bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[6];
                     if (!bolright && !bolleft && bolup) tile.Value.GetComponent<SpriteRenderer>().sprite = sprites[7];
                 }

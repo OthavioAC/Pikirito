@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 1784209303
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1496776161, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 16861e21b6988584896f00ed54460ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,14 +189,14 @@ MonoBehaviour:
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
   spriteList:
-  - {fileID: -1069139895, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 2022731541, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 1761236544, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 1496776161, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: -952186526, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: -797421979, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 1004620272, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 899755140, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: 21300000, guid: 161dd4dbe14885a4ab9a214313d6607e, type: 3}
+  - {fileID: 21300000, guid: 16861e21b6988584896f00ed54460ccf, type: 3}
+  - {fileID: 21300000, guid: 91f619985ce91d64ba436a70b9e475dc, type: 3}
+  - {fileID: 21300000, guid: a1defd43cd0e8f6469b19ac1adb76ac4, type: 3}
+  - {fileID: 21300000, guid: f92c57bc08642b34ba64a2d0670988b4, type: 3}
+  - {fileID: 21300000, guid: 8551091fa4fcd59418af3ee75430fb93, type: 3}
+  - {fileID: 21300000, guid: 5191fbc777f5f514da001d650455a9ba, type: 3}
+  - {fileID: 21300000, guid: 119a16ee91c229741a8b76f8e26e000a, type: 3}
   tileType: Hover
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898732058411355780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
@@ -270,7 +270,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40080
+  m_InstanceId: 54850
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}

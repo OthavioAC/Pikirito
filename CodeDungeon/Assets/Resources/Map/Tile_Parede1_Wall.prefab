@@ -195,7 +195,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42190
+  m_InstanceId: 56876
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -219,14 +219,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8774505953942237247
-Transform:
+--- !u!224 &8774505953942237247
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898732058411355780}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -236,6 +235,11 @@ Transform:
   - {fileID: 4896042419576297010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1052512430810509379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -256,7 +260,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7234f4b8adb0a6e41bc72e4c1393c5a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -277,7 +281,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 721787849, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76c09f1848b69bb4091055285f9a224f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,10 +309,10 @@ MonoBehaviour:
   tileRenderer: {fileID: 1052512430810509379}
   highlight: {fileID: 6115829499003353705}
   spriteList:
-  - {fileID: 1351122344, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: -1041712500, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: 721787849, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
-  - {fileID: -1158755853, guid: 9761eda58cb29314d971c7a00917618b, type: 3}
+  - {fileID: 21300000, guid: b5af98efd87e33c48839eed3e8711d6b, type: 3}
+  - {fileID: 21300000, guid: 76c09f1848b69bb4091055285f9a224f, type: 3}
+  - {fileID: 21300000, guid: 7482a91dcd123ae4db84125c5456343d, type: 3}
+  - {fileID: 21300000, guid: 69a402780b9481543886656e822a5cbb, type: 3}
   tileType: Wall
   objeto: {fileID: 0}
 --- !u!61 &1525792865029770800
@@ -363,7 +367,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898732058411355780}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
@@ -371,7 +375,7 @@ MonoBehaviour:
   m_ShadowGroup: 0
   m_ComponentVersion: 1
   m_HasRenderer: 1
-  m_UseRendererSilhouette: 0
+  m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 0000000097df586a
@@ -382,7 +386,7 @@ MonoBehaviour:
   - {x: 0.5048063, y: -0.50505286, z: 0}
   m_ShapePathHash: 458709839
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40890
+  m_InstanceId: 56890
   m_LocalBounds:
     m_Center: {x: 0.0024030805, y: -0.102256894, z: 0}
     m_Extent: {x: 0.50240314, y: 0.40279597, z: 0}

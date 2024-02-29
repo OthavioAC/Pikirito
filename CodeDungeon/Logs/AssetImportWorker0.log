@@ -570,3 +570,72 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 156.196668 seconds.
+  path: Assets/Textures/TileMap/TileSetMap.png
+  artifactKey: Guid(9761eda58cb29314d971c7a00917618b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/TileMap/TileSetMap.png using Guid(9761eda58cb29314d971c7a00917618b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daf7c114531aafacd6df49a3e27bd97f') in 0.086410 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Import Request.
+  Time since last request: 12.182355 seconds.
+  path: Assets/Textures/TileMap
+  artifactKey: Guid(129c6a338c987b345bb7572d027fd3be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/TileMap using Guid(129c6a338c987b345bb7572d027fd3be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72cfdfa4ad22772a83b166de70be18ee') in 0.000730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 19.512127 seconds.
+  path: Assets/Textures/TileMap/New Sprite Atlas.spriteatlas
+  artifactKey: Guid(129c9535f3c17fa448b31ddc9a1fc9cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/TileMap/New Sprite Atlas.spriteatlas using Guid(129c9535f3c17fa448b31ddc9a1fc9cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb961dbc75e04b1584048a2c3a03819c') in 0.003740 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 59.839502 seconds.
+  path: Assets/Materiais
+  artifactKey: Guid(b6c952ca54a42eb49930f6305d8fba41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materiais using Guid(b6c952ca54a42eb49930f6305d8fba41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d4d712059e4ee8d4666e17d06a63627') in 0.000645 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 69.447745 seconds.
+  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
+  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b85a8a8cbdc35d3ce33432237ad580b') in 0.019225 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.040591 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632ad2be642bca14f413f8360e081c97') in 0.321026 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+  artifactKey: Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset using Guid(8f586378b4e144a9851e7b34d9b748ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86fc8b2979650f78614cb346e6df4ffc') in 0.057027 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Textures/TileMap/TileSetObject.png
+  artifactKey: Guid(fafadd96ef88561418cfc4341dfaea8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/TileMap/TileSetObject.png using Guid(fafadd96ef88561418cfc4341dfaea8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95b6411c535cc57230d85bf54d31189c') in 0.034215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: A operação de E/S foi anulada devido a uma saída de thread ou a uma requisição de aplicativo.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
