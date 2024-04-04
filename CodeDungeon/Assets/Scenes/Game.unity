@@ -630,15 +630,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd38ef0f22befe4684261c39ba63d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  zoomStep: 0
-  minCamSize: 0
-  maxCamSize: 0
+  cam: {fileID: 1238890073}
+  zoomStep: 1
+  minCamSize: 3
+  maxCamSize: 7
   minSizeX: 0
   maxSizeX: 0
   minSizeY: 0
   maxSizeY: 0
-  Block: {fileID: 0}
+  size: 10
 --- !u!1 &1376457110
 GameObject:
   m_ObjectHideFlags: 0
