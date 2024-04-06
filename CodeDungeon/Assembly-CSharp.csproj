@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\OldGame\Scripts\TochLight.cs" />
+    <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
