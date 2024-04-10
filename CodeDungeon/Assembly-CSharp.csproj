@@ -63,10 +63,12 @@
     <Compile Include="Assets\OldGame\Scripts\TochLight.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\OldGame\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\NewEgg.cs" />
     <Compile Include="Assets\OldGame\Scripts\GridManager.cs" />
     <Compile Include="Assets\OldGame\Scripts\SideBlock.cs" />
   </ItemGroup>

@@ -22,11 +22,23 @@ public class Character : MonoBehaviour
 
     private Vector2 destinoAleatorio;
 
+    private string stat_Comida = "Cheio";
+    private string stat_Diversao = "Muito Feliz";
+    private string stat_Agua = "Cheio";
+    private string stat_Sujeira = "Limpo";
+    private string stat_Energia = "Animado";
+
+    private int lastComida;
+    private int lastDiversao;
+    private int lastAgua;
+    private int lastSujeira;
+    private int lastEnergia;
 
     private int moedas = 0;
     private void Start()
     {
         transform.position = new Vector2(0, 0);
+        label_moedas.GetComponent<TextMeshProUGUI>().text = moedas.ToString();
     }
 
     private void Update()
