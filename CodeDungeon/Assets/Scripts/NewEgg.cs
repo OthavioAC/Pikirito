@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class NewEgg : MonoBehaviour
 {
-    public GameObject Game;
-    public GameObject Egg;
+    public GameObject game;
+    public GameObject egg;
+    public GameObject textOvo;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,11 @@ public class NewEgg : MonoBehaviour
 
     public void funcNewEgg()
     {
-        Instantiate(Egg);
-        Game.GetComponent<Game>().piriquito = Egg;
-        Game.GetComponent<Game>().newEgg.enabled = false;
+
+        egg.GetComponent<Egg>().game = game;
+        Instantiate(egg);
+        game.GetComponent<Game>().piriquito = egg;
+        game.GetComponent<Game>().newEgg.enabled = false;
+        textOvo.SetActive(false);
     }
 }

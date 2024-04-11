@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private float zoomStep, minCamSize, maxCamSize;
     [SerializeField] private float minSizeX, maxSizeX, minSizeY, maxSizeY;
-    [SerializeField] private int size = 10;
+    [SerializeField] private int size = 250;
     private Vector3 dragOrigin;
 
 
