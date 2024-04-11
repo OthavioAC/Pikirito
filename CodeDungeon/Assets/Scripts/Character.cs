@@ -34,11 +34,9 @@ public class Character : MonoBehaviour
     private int lastSujeira;
     private int lastEnergia;
 
-    private int moedas = 0;
     private void Start()
     {
         transform.position = new Vector2(0, 0);
-        label_moedas.GetComponent<TextMeshProUGUI>().text = moedas.ToString();
     }
 
     private void Update()

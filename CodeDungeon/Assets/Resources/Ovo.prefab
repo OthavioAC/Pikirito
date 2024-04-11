@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggIdle: {fileID: 2380912020959262769}
+  clicks: 0
+  game: {fileID: 0}
+  character: {fileID: 4413525026055367901, guid: 0c38aca7e1df47743b18f4cf35a52b9e, type: 3}
 --- !u!61 &9047478800670986887
 BoxCollider2D:
   m_ObjectHideFlags: 0

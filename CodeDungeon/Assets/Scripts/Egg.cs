@@ -7,6 +7,7 @@ public class Egg : MonoBehaviour
     public GameObject eggIdle;
     public int clicks = 0;
     public GameObject game;
+    public GameObject character;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,8 @@ public class Egg : MonoBehaviour
 
     private void Chocar()
     {
-        //game.GetComponent<Game>().piriquito = piriquito.gameObject;
+        Instantiate(character);
+        //game.GetComponent<Game>().piriquito = character.gameObject;
         clicks = -999;
         Destroy(this.gameObject);
     }
