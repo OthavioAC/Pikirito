@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5321249191578985032}
   - component: {fileID: 1402386646649218254}
   - component: {fileID: 1760730003340336124}
-  - component: {fileID: 6686602721829958147}
+  - component: {fileID: 4664908759424193571}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label_moedas: {fileID: 0}
-  anim: {fileID: 6686602721829958147}
+  anim: {fileID: 4664908759424193571}
   velocidade: 5
   limiteMin: {x: -5, y: -5}
   limiteMax: {x: 5, y: 5}
   state: Idle
---- !u!95 &6686602721829958147
+--- !u!95 &4664908759424193571
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

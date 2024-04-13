@@ -48,6 +48,7 @@ public class Character : MonoBehaviour
         {
             if (idleTime <= idleTimeMax)
             {
+                anim.SetBool("Idle", true);
                 idleTime += Time.deltaTime;
             }
             else
@@ -59,6 +60,7 @@ public class Character : MonoBehaviour
                 }
                 else
                 {
+                    anim.SetBool("Idle", false);
                     var posx = transform.position.x - destinoAleatorio.x;
                     var posy = transform.position.y - destinoAleatorio.y;
                     anim.SetFloat("MovementX", -posx);
