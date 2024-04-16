@@ -69,14 +69,13 @@ public class Character : MonoBehaviour
                 }
             }
         }
-
-        
-
-
     }
 
     private Vector2 PosRandom()
     {
-        return new Vector2(Random.Range(limiteMin.x, limiteMax.x), Random.Range(limiteMin.y, limiteMax.y));
+        float posx = Random.Range(-20f,20f);
+        float yrange = (20-math.abs(posx))/2;
+        float posy = Random.Range(-yrange, yrange);
+        return new Vector2(posx,posy);
     }
 }
