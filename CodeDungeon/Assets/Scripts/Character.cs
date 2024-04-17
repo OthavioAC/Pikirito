@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -38,6 +39,8 @@ public class Character : MonoBehaviour
     private DateTime lastSujeira;
     private DateTime lastEnergia;
 
+    private int energyPoints = 2;
+
     private void Start()
     {
         transform.position = new Vector2(0, 0);
@@ -48,70 +51,14 @@ public class Character : MonoBehaviour
             lastDiversao = date.AddHours(-3);
             lastAgua = date.AddHours(-3);
             lastSujeira = date.AddHours(-3);
-            lastEnergia = date.AddHours(-3);
+            lastEnergia = date.AddHours(-12);
         }
 
     }
 
     private void Update()
     {
-        DateTime dat = DateTime.Now;
-
-        DateTime datSemComida = dat.AddTicks(-lastComida.Ticks);
-        if (datSemComida.Hour < 3)
-        {
-            stat_Comida = "Gordo";
-        }
-        if (datSemComida.Hour >= 3)
-        {
-            stat_Comida = "Cheio";
-        }
-        if (datSemComida.Hour > 6)
-        {
-            stat_Comida = "Neutro";
-        }
-        if (datSemComida.Hour > 12)
-        {
-            stat_Comida = "Com Fome";
-        }
-        if (datSemComida.Hour > 24)
-        {
-            stat_Comida = "Esfomeado";
-        }
-        if (datSemComida.Hour > 72)
-        {
-            stat_Comida = "Morto - Fome";
-        }
-
-        DateTime datSemDiversao = dat.AddTicks(-lastDiversao.Ticks);
-        if (datSemDiversao.Hour < 3)
-        {
-            stat_Diversao = "Excitado";
-        }
-        if (datSemDiversao.Hour >= 3)
-        {
-            stat_Diversao = "Feliz";
-        }
-        if (datSemDiversao.Hour >= 8)
-        {
-            stat_Diversao = "Neutro";
-        }
-        if (datSemDiversao.Hour >= 16)
-        {
-            stat_Diversao = "Triste";
-        }
-        if (datSemDiversao.Hour >= 32)
-        {
-            stat_Diversao = "Depressivo";
-        }
-
-
-
-
-
-
-
-
+        CheckStats();
 
         if (state == "Idle")
         {
@@ -147,4 +94,112 @@ public class Character : MonoBehaviour
         float posy = Random.Range(-yrange, yrange);
         return new Vector2(posx,posy);
     }
+
+    private void CheckStats()
+    {
+
+        DateTime dat = DateTime.Now;
+
+        DateTime datSemComida = dat.AddTicks(-lastComida.Ticks);
+        if (datSemComida.Hour < 3)
+        {
+            stat_Comida = "Gordo";
+        }
+        if (datSemComida.Hour >= 3)
+        {
+            stat_Comida = "Cheio";
+        }
+        if (datSemComida.Hour >= 6)
+        {
+            stat_Comida = "Neutro";
+        }
+        if (datSemComida.Hour >= 12)
+        {
+            stat_Comida = "Com Fome";
+        }
+        if (datSemComida.Hour >= 24)
+        {
+            stat_Comida = "Esfomeado";
+        }
+        if (datSemComida.Hour >= 72)
+        {
+            stat_Comida = "Morto - Fome";
+        }
+
+        DateTime datSemDiversao = dat.AddTicks(-lastDiversao.Ticks);
+        if (datSemDiversao.Hour < 3)
+        {
+            stat_Diversao = "Excitado";
+        }
+        if (datSemDiversao.Hour >= 3)
+        {
+            stat_Diversao = "Feliz";
+        }
+        if (datSemDiversao.Hour >= 8)
+        {
+            stat_Diversao = "Neutro";
+        }
+        if (datSemDiversao.Hour >= 16)
+        {
+            stat_Diversao = "Triste";
+        }
+        if (datSemDiversao.Hour >= 32)
+        {
+            stat_Diversao = "Depressivo";
+        }
+
+        DateTime datSemAgua = dat.AddTicks(-lastAgua.Ticks);
+        if (datSemAgua.Hour < 3)
+        {
+            stat_Agua = "Cheio";
+        }
+        if (datSemAgua.Hour >= 8)
+        {
+            stat_Agua = "Neutro";
+        }
+        if (datSemAgua.Hour >= 16)
+        {
+            stat_Agua = "Com Sede";
+        }
+        if (datSemAgua.Hour >= 32)
+        {
+            stat_Agua = "Muita sede";
+        }
+        if (datSemAgua.Hour >= 72)
+        {
+            stat_Agua = "Morto - Sede";
+        }
+
+        DateTime datSemBanho = dat.AddTicks(-lastSujeira.Ticks);
+        if (datSemBanho.Hour < 3)
+        {
+            stat_Sujeira = "Brilhando";
+        }
+        if (datSemBanho.Hour >= 8)
+        {
+            stat_Sujeira = "Limpo";
+        }
+        if (datSemBanho.Hour >= 16)
+        {
+            stat_Sujeira = "Neutro";
+        }
+        if (datSemBanho.Hour >= 24)
+        {
+            stat_Sujeira = "Sujo";
+        }
+        if (datSemBanho.Hour >= 48)
+        {
+            stat_Sujeira = "Podre";
+        }
+
+        DateTime datSemEnergia = dat.AddTicks(-lastEnergia.Ticks);
+        if (datSemEnergia.Hour >= 1)
+        {
+            energyPoints += 1;
+            if (energyPoints > 10) energyPoints = 10;
+            lastEnergia = lastEnergia.AddHours(1);
+        }
+    }
 }
+
+
