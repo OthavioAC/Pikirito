@@ -28,40 +28,44 @@ public class Character : MonoBehaviour
     private Vector2 destinoAleatorio;
 
 
-    private string stat_Comida = "Cheio";
-    private string stat_Diversao = "Muito Feliz";
-    private string stat_Agua = "Cheio";
-    private string stat_Sujeira = "Limpo";
-    private string stat_Energia = "Animado";
+    [SerializeField] private string stat_Comida = "Cheio";
+    [SerializeField] private string stat_Diversao = "Muito Feliz";
+    [SerializeField] private string stat_Agua = "Cheio";
+    [SerializeField] private string stat_Sujeira = "Limpo";
 
 
 
 
-    private DateTime lastComida;
-    private DateTime lastDiversao;
-    private DateTime lastAgua;
-    private DateTime lastSujeira;
-    private DateTime lastEnergia;
-    private DateTime lastCagar;
-    private int energyPoints = 10;
-    private GameObject[] poops;
+    [SerializeField] private DateTime lastComida;
+    [SerializeField] private DateTime lastDiversao;
+    [SerializeField] private DateTime lastAgua;
+    [SerializeField] private DateTime lastSujeira;
+    [SerializeField] private DateTime lastEnergia;
+    [SerializeField] private DateTime lastCagar;
+    [SerializeField] private int energyPoints = 10;
+    [SerializeField] private List<GameObject> poops = new List<GameObject>();
 
     private void Start()
     {
         transform.position = new Vector2(0, 0);
-        if(lastComida.Year==1)
+        if (lastComida.Year == 1)
         {
             DateTime date = DateTime.Now;
             lastComida = date.AddHours(-3);
             lastDiversao = date.AddHours(-3);
             lastAgua = date.AddHours(-3);
             lastSujeira = date.AddHours(-3);
-            lastEnergia = date.AddHours(-12);
-            lastCagar = date.AddHours(-120);
+            lastEnergia = date;
+            lastCagar = date.AddHours(-3);
 
-            Pooping(PosRandom());
+            var diarreia = true;
+            do
+            {
+                diarreia = Pooping(PosRandom());
+            } while (diarreia);
+            
         }
-
+        
     }
 
     private void Update()
@@ -70,10 +74,68 @@ public class Character : MonoBehaviour
 
         Pooping(transform.position);
 
+        MachineState();
+
+        
+    }
+
+    private Vector2 PosRandom()
+    {
+        float posx = Random.Range(-20f,20f);
+        float yrange = (20-math.abs(posx))/2;
+        float posy = Random.Range(-yrange, yrange);
+        return new Vector2(posx,posy);
+    }
+
+    private bool Pooping(Vector2 pos)
+    {
+        var cagar = false;
+        DateTime dat = DateTime.Now;
+        DateTime datSemCagar = dat.AddTicks(-lastCagar.Ticks);
+        var horaspracagar = (datSemCagar.Hour) + (datSemCagar.Day * 24) + (datSemCagar.Month * 720) + (datSemCagar.Year * 8760) - 8760 - 720 - 24;
+        if (stat_Comida == "Gordo")
+        {
+            if (horaspracagar >= 4)
+            {
+                lastCagar = AddInHours(lastCagar, 4);
+                cagar = true;
+            }
+        }
+        if (stat_Comida == "Cheio" || stat_Comida == "Neutro")
+        {
+            if (horaspracagar >= 8)
+            {
+                lastCagar = AddInHours(lastCagar, 8);
+                cagar = true;
+            }
+        }
+        if (cagar)
+        {
+            GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
+            poops.Add(bostaInst);
+            return true;
+        }
+        else return false;
+    }
 
 
+    private DateTime AddInHours(DateTime date, int hours)
+    {
+        if(hours>0)
+        {
+            DateTime datatemp = new DateTime();
+            datatemp = datatemp.AddHours(hours);
+            return date.AddTicks(datatemp.Ticks);
+        }
+        else
+        {
+            return date.AddHours(-120);
+        }
+    }
 
 
+    private void MachineState()
+    {
         if (state == "Idle")
         {
             if (idleTime <= idleTimeMax)
@@ -98,43 +160,6 @@ public class Character : MonoBehaviour
                     transform.position = Vector2.MoveTowards(transform.position, destinoAleatorio, velocidade * Time.deltaTime);
                 }
             }
-        }
-    }
-
-    private Vector2 PosRandom()
-    {
-        float posx = Random.Range(-20f,20f);
-        float yrange = (20-math.abs(posx))/2;
-        float posy = Random.Range(-yrange, yrange);
-        return new Vector2(posx,posy);
-    }
-
-    private void Pooping(Vector2 pos)
-    {
-        var cagar = false;
-        DateTime dat = DateTime.Now;
-        DateTime datSemCagar = dat.AddTicks(-lastCagar.Ticks);
-        var horaspracagar = (datSemCagar.Hour) + (datSemCagar.Day * 24) + (datSemCagar.Month*720) +(datSemCagar.Year * 8760);
-        if (stat_Comida == "Gordo")
-        {
-            if (horaspracagar >= 4)
-            {
-                lastCagar = lastCagar.AddHours(4);
-                cagar = true;
-            }
-        }
-        if(stat_Comida == "Cheio"|| stat_Comida == "Neutro")
-        {
-            if (horaspracagar >= 8)
-            {
-                lastCagar = lastCagar.AddHours(8);
-                cagar = true;
-            }
-        }
-        if(cagar)
-        {
-            Debug.Log("Cagou");
-            Instantiate(bosta, pos, Quaternion.identity);
         }
     }
 
