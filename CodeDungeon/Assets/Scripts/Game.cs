@@ -21,7 +21,7 @@ public class Game : MonoBehaviour, IDataPersistence
     [SerializeField] public DateTime lastEnergia;
     [SerializeField] public DateTime lastCagar;
     [SerializeField] public int energyPoints = 10;
-    [SerializeField] public List<GameObject> poops = new List<GameObject>();
+    [SerializeField] public List<Vector2> poops = new List<Vector2>();
 
     // Start is called before the first frame update
     void Start()

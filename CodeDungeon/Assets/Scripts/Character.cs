@@ -50,14 +50,23 @@ public class Character : MonoBehaviour
             gameScript.lastEnergia = date;
             gameScript.lastCagar = date.AddHours(-3);
 
-            var diarreia = true;
-            do
-            {
-                diarreia = Pooping(PosRandom());
-            } while (diarreia);
+            
 
         }
+        else
+        {
+            foreach (Vector2 poopPos in gameScript.poops)
+            {
+                var bostacoco = Instantiate(bosta, transform.parent);
+                bostacoco.transform.position = poopPos;
+            }
+        }
 
+        var diarreia = true;
+        do
+        {
+            diarreia = Pooping(PosRandom());
+        } while (diarreia) ;
     }
 
     private void Update()
@@ -104,7 +113,7 @@ public class Character : MonoBehaviour
         if (cagar)
         {
             GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
-            gameScript.poops.Add(bostaInst);
+            gameScript.poops.Add(bostaInst.transform.position);
             return true;
         }
         else return false;
