@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 {
     public GameObject label_moedas;
     public Animator anim;
+    public GameObject bosta;
 
     public float velocidade = 5f; // Velocidade de movimento
     public Vector2 limiteMin; // Canto inferior esquerdo da área
@@ -33,13 +34,17 @@ public class Character : MonoBehaviour
     private string stat_Sujeira = "Limpo";
     private string stat_Energia = "Animado";
 
+
+
+
     private DateTime lastComida;
     private DateTime lastDiversao;
     private DateTime lastAgua;
     private DateTime lastSujeira;
     private DateTime lastEnergia;
-
-    private int energyPoints = 2;
+    private DateTime lastCagar;
+    private int energyPoints = 10;
+    private GameObject[] poops;
 
     private void Start()
     {
@@ -52,6 +57,9 @@ public class Character : MonoBehaviour
             lastAgua = date.AddHours(-3);
             lastSujeira = date.AddHours(-3);
             lastEnergia = date.AddHours(-12);
+            lastCagar = date.AddHours(-120);
+
+            Pooping(PosRandom());
         }
 
     }
@@ -59,6 +67,12 @@ public class Character : MonoBehaviour
     private void Update()
     {
         CheckStats();
+
+        Pooping(transform.position);
+
+
+
+
 
         if (state == "Idle")
         {
@@ -93,6 +107,35 @@ public class Character : MonoBehaviour
         float yrange = (20-math.abs(posx))/2;
         float posy = Random.Range(-yrange, yrange);
         return new Vector2(posx,posy);
+    }
+
+    private void Pooping(Vector2 pos)
+    {
+        var cagar = false;
+        DateTime dat = DateTime.Now;
+        DateTime datSemCagar = dat.AddTicks(-lastCagar.Ticks);
+        var horaspracagar = (datSemCagar.Hour) + (datSemCagar.Day * 24) + (datSemCagar.Month*720) +(datSemCagar.Year * 8760);
+        if (stat_Comida == "Gordo")
+        {
+            if (horaspracagar >= 4)
+            {
+                lastCagar = lastCagar.AddHours(4);
+                cagar = true;
+            }
+        }
+        if(stat_Comida == "Cheio"|| stat_Comida == "Neutro")
+        {
+            if (horaspracagar >= 8)
+            {
+                lastCagar = lastCagar.AddHours(8);
+                cagar = true;
+            }
+        }
+        if(cagar)
+        {
+            Debug.Log("Cagou");
+            Instantiate(bosta, pos, Quaternion.identity);
+        }
     }
 
     private void CheckStats()
