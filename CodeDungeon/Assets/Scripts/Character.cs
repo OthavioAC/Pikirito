@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
+    public GameObject gameObject;
+    public Game gameScript;
     public GameObject label_moedas;
     public Animator anim;
     public GameObject bosta;
@@ -22,8 +24,8 @@ public class Character : MonoBehaviour
 
     private float idleTime = 0;
     private float idleTimeMax = 4;
-    private Vector2 lastPos = new Vector2 (0, 0);
-    private Vector2 walkingTo = new Vector2(0,0);
+    private Vector2 lastPos = new Vector2(0, 0);
+    private Vector2 walkingTo = new Vector2(0, 0);
 
     private Vector2 destinoAleatorio;
 
@@ -34,38 +36,28 @@ public class Character : MonoBehaviour
     [SerializeField] private string stat_Sujeira = "Limpo";
 
 
-
-
-    [SerializeField] private DateTime lastComida;
-    [SerializeField] private DateTime lastDiversao;
-    [SerializeField] private DateTime lastAgua;
-    [SerializeField] private DateTime lastSujeira;
-    [SerializeField] private DateTime lastEnergia;
-    [SerializeField] private DateTime lastCagar;
-    [SerializeField] private int energyPoints = 10;
-    [SerializeField] private List<GameObject> poops = new List<GameObject>();
-
     private void Start()
     {
+        gameScript = gameObject.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
-        if (lastComida.Year == 1)
+        if (gameScript.lastComida.Year == 1)
         {
             DateTime date = DateTime.Now;
-            lastComida = date.AddHours(-3);
-            lastDiversao = date.AddHours(-3);
-            lastAgua = date.AddHours(-3);
-            lastSujeira = date.AddHours(-3);
-            lastEnergia = date;
-            lastCagar = date.AddHours(-3);
+            gameScript.lastComida = date.AddHours(-3);
+            gameScript.lastDiversao = date.AddHours(-3);
+            gameScript.lastAgua = date.AddHours(-3);
+            gameScript.lastSujeira = date.AddHours(-3);
+            gameScript.lastEnergia = date;
+            gameScript.lastCagar = date.AddHours(-3);
 
             var diarreia = true;
             do
             {
                 diarreia = Pooping(PosRandom());
             } while (diarreia);
-            
+
         }
-        
+
     }
 
     private void Update()
@@ -76,7 +68,7 @@ public class Character : MonoBehaviour
 
         MachineState();
 
-        
+
     }
 
     private Vector2 PosRandom()
@@ -91,13 +83,13 @@ public class Character : MonoBehaviour
     {
         var cagar = false;
         DateTime dat = DateTime.Now;
-        DateTime datSemCagar = dat.AddTicks(-lastCagar.Ticks);
+        DateTime datSemCagar = dat.AddTicks(-gameScript.lastCagar.Ticks);
         var horaspracagar = (datSemCagar.Hour) + (datSemCagar.Day * 24) + (datSemCagar.Month * 720) + (datSemCagar.Year * 8760) - 8760 - 720 - 24;
         if (stat_Comida == "Gordo")
         {
             if (horaspracagar >= 4)
             {
-                lastCagar = AddInHours(lastCagar, 4);
+                gameScript.lastCagar = AddInHours(gameScript.lastCagar, 4);
                 cagar = true;
             }
         }
@@ -105,14 +97,14 @@ public class Character : MonoBehaviour
         {
             if (horaspracagar >= 8)
             {
-                lastCagar = AddInHours(lastCagar, 8);
+                gameScript.lastCagar = AddInHours(gameScript.lastCagar, 8);
                 cagar = true;
             }
         }
         if (cagar)
         {
             GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
-            poops.Add(bostaInst);
+            gameScript.poops.Add(bostaInst);
             return true;
         }
         else return false;
@@ -168,7 +160,7 @@ public class Character : MonoBehaviour
 
         DateTime dat = DateTime.Now;
 
-        DateTime datSemComida = dat.AddTicks(-lastComida.Ticks);
+        DateTime datSemComida = dat.AddTicks(-gameScript.lastComida.Ticks);
         if (datSemComida.Hour < 3)
         {
             stat_Comida = "Gordo";
@@ -194,7 +186,7 @@ public class Character : MonoBehaviour
             stat_Comida = "Morto - Fome";
         }
 
-        DateTime datSemDiversao = dat.AddTicks(-lastDiversao.Ticks);
+        DateTime datSemDiversao = dat.AddTicks(-gameScript.lastDiversao.Ticks);
         if (datSemDiversao.Hour < 3)
         {
             stat_Diversao = "Excitado";
@@ -216,7 +208,7 @@ public class Character : MonoBehaviour
             stat_Diversao = "Depressivo";
         }
 
-        DateTime datSemAgua = dat.AddTicks(-lastAgua.Ticks);
+        DateTime datSemAgua = dat.AddTicks(-gameScript.lastAgua.Ticks);
         if (datSemAgua.Hour < 3)
         {
             stat_Agua = "Cheio";
@@ -238,7 +230,7 @@ public class Character : MonoBehaviour
             stat_Agua = "Morto - Sede";
         }
 
-        DateTime datSemBanho = dat.AddTicks(-lastSujeira.Ticks);
+        DateTime datSemBanho = dat.AddTicks(-gameScript.lastSujeira.Ticks);
         if (datSemBanho.Hour < 3)
         {
             stat_Sujeira = "Brilhando";
@@ -260,12 +252,12 @@ public class Character : MonoBehaviour
             stat_Sujeira = "Podre";
         }
 
-        DateTime datSemEnergia = dat.AddTicks(-lastEnergia.Ticks);
+        DateTime datSemEnergia = dat.AddTicks(-gameScript.lastEnergia.Ticks);
         if (datSemEnergia.Hour >= 1)
         {
-            energyPoints += 1;
-            if (energyPoints > 10) energyPoints = 10;
-            lastEnergia = lastEnergia.AddHours(1);
+            gameScript.energyPoints += 1;
+            if (gameScript.energyPoints > 10) gameScript.energyPoints = 10;
+            gameScript.lastEnergia = gameScript.lastEnergia.AddHours(1);
         }
     }
 }

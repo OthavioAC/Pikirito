@@ -240,6 +240,37 @@ Transform:
   - {fileID: 575401224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &184707638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184707639}
+  m_Layer: 0
+  m_Name: CharacterObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &184707639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184707638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1896706, y: -1.5985386, z: 0.5236194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257350270
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +805,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newEgg: {fileID: 1476105645}
+  textOvo: {fileID: 1820692560}
+  characterSet: {fileID: 0}
   piriquito: {fileID: 0}
+  energyPoints: 10
+  poops: []
 --- !u!114 &1235704699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,8 +1018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1238890073}
   zoomStep: 1
-  minCamSize: 15
-  maxCamSize: 20
+  minCamSize: 10
+  maxCamSize: 15
   minSizeX: 0
   maxSizeX: 0
   minSizeY: 0
@@ -1110,6 +1145,51 @@ MonoBehaviour:
   game: {fileID: 1235704693}
   egg: {fileID: 1702916306131859112, guid: 8792fa8e3ef04584d89909d7f1eed8c0, type: 3}
   textOvo: {fileID: 1820692560}
+--- !u!1 &1539775658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539775660}
+  - component: {fileID: 1539775659}
+  m_Layer: 0
+  m_Name: DataPersitenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1539775659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539775658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c441b491915b9c94f92915873eb0f270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: SavePriquito.game
+--- !u!4 &1539775660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539775658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47165757, y: 5.6891217, z: 0.65891975}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820692560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,3 +1335,5 @@ SceneRoots:
   - {fileID: 447921509}
   - {fileID: 803321164}
   - {fileID: 178446251}
+  - {fileID: 1539775660}
+  - {fileID: 184707639}

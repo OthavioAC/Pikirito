@@ -31,8 +31,9 @@ public class Egg : MonoBehaviour
 
     private void Chocar()
     {
+        character.GetComponent<Character>().gameObject = game;
+        game.GetComponent<Game>().piriquito = character.gameObject;
         Instantiate(character);
-        //game.GetComponent<Game>().piriquito = character.gameObject;
         clicks = -999;
         Destroy(this.gameObject);
     }

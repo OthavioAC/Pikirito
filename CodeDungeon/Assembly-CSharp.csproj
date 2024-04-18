@@ -60,18 +60,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\OldGame\Scripts\TochLight.cs" />
+    <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
+    <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\OldGame\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\NewEgg.cs" />
     <Compile Include="Assets\OldGame\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Egg.cs" />
     <Compile Include="Assets\OldGame\Scripts\SideBlock.cs" />
+    <Compile Include="Assets\DataPersistence\DataPersistenceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\OldGame\TextMesh Pro\Shaders\TMPro.cginc" />
