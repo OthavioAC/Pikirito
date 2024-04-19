@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\OldGame\Scripts\TochLight.cs" />
+    <Compile Include="Assets\Scripts\Balao.cs" />
     <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />

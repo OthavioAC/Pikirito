@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public GameObject label_moedas;
     public Animator anim;
     public GameObject bosta;
+    public GameObject balao;
 
     public float velocidade = 5f; // Velocidade de movimento
     public Vector2 limiteMin; // Canto inferior esquerdo da área
@@ -27,6 +28,8 @@ public class Character : MonoBehaviour
     private float idleTimeMax = 4;
     private Vector2 lastPos = new Vector2(0, 0);
     private Vector2 walkingTo = new Vector2(0, 0);
+    private float balaoTime = 0;
+    private float balaoTimeMax = 4;
 
     private Vector2 destinoAleatorio;
 
@@ -76,8 +79,9 @@ public class Character : MonoBehaviour
 
         Pooping(transform.position);
 
-        MachineState();
+        CheckBalao();
 
+        MachineState();
 
     }
 
@@ -135,7 +139,6 @@ public class Character : MonoBehaviour
         }
     }
 
-
     private void MachineState()
     {
         if (state == "Idle")
@@ -165,105 +168,93 @@ public class Character : MonoBehaviour
         }
     }
 
+
+
+    private bool CheckBalao()
+    {
+        if (balaoTime <= balaoTimeMax)
+        {
+            balaoTime += Time.deltaTime;
+            return false;
+        }
+        balaoTime = 0;
+        List<String> stats = new List<String>();
+        if (stat_Comida == "Com Fome" ||
+            stat_Comida == "Esfomeado")
+        {
+            stats.Add(stat_Comida);
+        }
+
+        if (stat_Diversao == "Triste" ||
+            stat_Diversao == "Depressivo")
+        {
+            stats.Add(stat_Diversao);
+        }
+
+        if (stat_Agua == "Muita Sede" ||
+            stat_Agua == "Com Sede")
+        {
+            stats.Add(stat_Agua);
+        }
+
+        if (stat_Sujeira == "Podre" ||
+            stat_Sujeira == "Sujo")
+        {
+            stats.Add(stat_Sujeira);
+        }
+
+        if (gameScript.energyPoints <= 0)
+        {
+            stats.Add("Cansado");
+        }
+        if(stats.Count > 0)
+        {
+            Instantiate(balao, transform);
+        }
+        return true;
+    }
     private void CheckStats()
     {
 
         DateTime dat = DateTime.Now;
 
-        DateTime datSemComida = dat.AddTicks(-gameScript.lastComida.Ticks);
-        if (datSemComida.Hour < 3)
-        {
-            stat_Comida = "Gordo";
-        }
-        if (datSemComida.Hour >= 3)
-        {
-            stat_Comida = "Cheio";
-        }
-        if (datSemComida.Hour >= 6)
-        {
-            stat_Comida = "Neutro";
-        }
-        if (datSemComida.Hour >= 12)
-        {
-            stat_Comida = "Com Fome";
-        }
-        if (datSemComida.Hour >= 24)
-        {
-            stat_Comida = "Esfomeado";
-        }
-        if (datSemComida.Hour >= 72)
-        {
-            stat_Comida = "Morto - Fome";
-        }
 
-        DateTime datSemDiversao = dat.AddTicks(-gameScript.lastDiversao.Ticks);
-        if (datSemDiversao.Hour < 3)
-        {
-            stat_Diversao = "Excitado";
-        }
-        if (datSemDiversao.Hour >= 3)
-        {
-            stat_Diversao = "Feliz";
-        }
-        if (datSemDiversao.Hour >= 8)
-        {
-            stat_Diversao = "Neutro";
-        }
-        if (datSemDiversao.Hour >= 16)
-        {
-            stat_Diversao = "Triste";
-        }
-        if (datSemDiversao.Hour >= 32)
-        {
-            stat_Diversao = "Depressivo";
-        }
+        DateTime datSemComidaDate = dat.AddTicks(-gameScript.lastComida.Ticks);
+        int datSemComida = (datSemComidaDate.Hour) + (datSemComidaDate.Day * 24) + (datSemComidaDate.Month * 720) + (datSemComidaDate.Year * 8760) - 8760 - 720 - 24;
+        if (datSemComida >= 72) stat_Comida = "Morto - Fome";
+        else if (datSemComida>= 24) stat_Comida = "Esfomeado";
+        else if (datSemComida >= 12) stat_Comida = "Com Fome";
+        else if (datSemComida >= 6) stat_Comida = "Neutro";
+        else if (datSemComida >= 3) stat_Comida = "Cheio";
+        else if (datSemComida < 3) stat_Comida = "Gordo";
 
-        DateTime datSemAgua = dat.AddTicks(-gameScript.lastAgua.Ticks);
-        if (datSemAgua.Hour < 3)
-        {
-            stat_Agua = "Cheio";
-        }
-        if (datSemAgua.Hour >= 8)
-        {
-            stat_Agua = "Neutro";
-        }
-        if (datSemAgua.Hour >= 16)
-        {
-            stat_Agua = "Com Sede";
-        }
-        if (datSemAgua.Hour >= 32)
-        {
-            stat_Agua = "Muita sede";
-        }
-        if (datSemAgua.Hour >= 72)
-        {
-            stat_Agua = "Morto - Sede";
-        }
+        DateTime datSemDiversaoDate = dat.AddTicks(-gameScript.lastDiversao.Ticks);
+        int datSemDiversao = (datSemDiversaoDate.Hour) + (datSemDiversaoDate.Day * 24) + (datSemDiversaoDate.Month * 720) + (datSemDiversaoDate.Year * 8760) - 8760 - 720 - 24;
+        if (datSemDiversao >= 32) stat_Diversao = "Depressivo";
+        else if (datSemDiversao >= 16) stat_Diversao = "Triste";
+        else if (datSemDiversao >= 8) stat_Diversao = "Neutro";
+        else if (datSemDiversao >= 3) stat_Diversao = "Feliz";
+        else if (datSemDiversao < 3) stat_Diversao = "Excitado";
 
-        DateTime datSemBanho = dat.AddTicks(-gameScript.lastSujeira.Ticks);
-        if (datSemBanho.Hour < 3)
-        {
-            stat_Sujeira = "Brilhando";
-        }
-        if (datSemBanho.Hour >= 8)
-        {
-            stat_Sujeira = "Limpo";
-        }
-        if (datSemBanho.Hour >= 16)
-        {
-            stat_Sujeira = "Neutro";
-        }
-        if (datSemBanho.Hour >= 24)
-        {
-            stat_Sujeira = "Sujo";
-        }
-        if (datSemBanho.Hour >= 48)
-        {
-            stat_Sujeira = "Podre";
-        }
+        DateTime datSemAguaDate = dat.AddTicks(-gameScript.lastAgua.Ticks);
+        int datSemAgua = (datSemAguaDate.Hour) + (datSemAguaDate.Day * 24) + (datSemAguaDate.Month * 720) + (datSemAguaDate.Year * 8760) - 8760 - 720 - 24;
+        if (datSemAgua >= 72) stat_Agua = "Morto - Sede";
+        else if (datSemAgua>= 32) stat_Agua = "Muita Sede";
+        else if (datSemAgua >= 16) stat_Agua = "Com Sede";
+        else if (datSemAgua >= 8) stat_Agua = "Neutro";
+        else if (datSemAgua < 3) stat_Agua = "Cheio";
 
-        DateTime datSemEnergia = dat.AddTicks(-gameScript.lastEnergia.Ticks);
-        if (datSemEnergia.Hour >= 1)
+        DateTime datSemBanhoDate = dat.AddTicks(-gameScript.lastSujeira.Ticks);
+        int datSemBanho = (datSemBanhoDate.Hour) + (datSemBanhoDate.Day * 24) + (datSemBanhoDate.Month * 720) + (datSemBanhoDate.Year * 8760) - 8760 - 720 - 24;
+        if (datSemBanho >= 48) stat_Sujeira = "Podre";
+        else if (datSemBanho >= 24) stat_Sujeira = "Sujo";
+        else if (datSemBanho >= 16) stat_Sujeira = "Neutro";
+        else if (datSemBanho >= 8) stat_Sujeira = "Limpo";
+        else if (datSemBanho < 3) stat_Sujeira = "Brilhando";
+
+        DateTime datSemEnergiaDate = dat.AddTicks(-gameScript.lastEnergia.Ticks);
+        int datSemEnergia = (datSemEnergiaDate.Hour) + (datSemEnergiaDate.Day * 24) + (datSemEnergiaDate.Month * 720) + (datSemEnergiaDate.Year * 8760) - 8760 - 720 - 24;
+        if (datSemEnergia >= 1)
         {
             gameScript.energyPoints += 1;
             if (gameScript.energyPoints > 10) gameScript.energyPoints = 10;

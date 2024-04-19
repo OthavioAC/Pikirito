@@ -46,6 +46,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
+            Debug.Log("Jogo Carregado");
             dataPersistenceObj.LoadData(gameData);
         }
     }

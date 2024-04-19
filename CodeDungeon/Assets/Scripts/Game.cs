@@ -25,6 +25,11 @@ public class Game : MonoBehaviour, IDataPersistence
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public void ToStart()
+    {
         newEgg.enabled = false;
         if (piriquito == null)
         {
@@ -32,7 +37,7 @@ public class Game : MonoBehaviour, IDataPersistence
         }
         else
         {
-            if(piriquito.tag=="Passarinho")
+            if (piriquito.tag == "Passarinho")
             {
                 piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
             }
@@ -40,6 +45,7 @@ public class Game : MonoBehaviour, IDataPersistence
             textOvo.SetActive(false);
         }
     }
+
 
     public void LoadData(GameData data)
     {
@@ -52,8 +58,7 @@ public class Game : MonoBehaviour, IDataPersistence
         this.piriquito = data.piriquito;
         this.energyPoints = data.energyPoints;
         this.poops = data.poops;
-        
-        
+        ToStart();
     }
 
     public void SaveData(ref GameData data)
