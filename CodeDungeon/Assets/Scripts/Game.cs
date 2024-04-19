@@ -11,7 +11,6 @@ public class Game : MonoBehaviour, IDataPersistence
 
     public RawImage newEgg;
     public GameObject textOvo;
-    public GameObject characterSet;
 
     public GameObject piriquito = null;
     [SerializeField] public DateTime lastComida;
@@ -33,6 +32,10 @@ public class Game : MonoBehaviour, IDataPersistence
         }
         else
         {
+            if(piriquito.tag=="Passarinho")
+            {
+                piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
+            }
             Instantiate(piriquito, transform.parent);
             textOvo.SetActive(false);
         }
@@ -49,6 +52,8 @@ public class Game : MonoBehaviour, IDataPersistence
         this.piriquito = data.piriquito;
         this.energyPoints = data.energyPoints;
         this.poops = data.poops;
+        
+        
     }
 
     public void SaveData(ref GameData data)

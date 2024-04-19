@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
+    public string name = "Egg";
+
     public GameObject eggIdle;
     public int clicks = 0;
     public GameObject game;
     public GameObject character;
+    public GameObject gameObjecte;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class Egg : MonoBehaviour
 
     private void Chocar()
     {
-        character.GetComponent<Character>().gameObject = game;
+        character.GetComponent<Character>().gameObjecte = game;
         game.GetComponent<Game>().piriquito = character.gameObject;
         Instantiate(character);
         clicks = -999;

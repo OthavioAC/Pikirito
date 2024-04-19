@@ -9,7 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
-    public GameObject gameObject;
+    public string name = "Bob";
+    public GameObject gameObjecte;
     public Game gameScript;
     public GameObject label_moedas;
     public Animator anim;
@@ -38,7 +39,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        gameScript = gameObject.GetComponent<Game>();
+        gameScript = gameObjecte.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
         if (gameScript.lastComida.Year == 1)
         {
