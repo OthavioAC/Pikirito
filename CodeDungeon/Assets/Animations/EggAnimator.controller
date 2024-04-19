@@ -55,7 +55,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ovo_export_idle_0
+  m_Name: EggAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Clicked
