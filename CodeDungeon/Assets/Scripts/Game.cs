@@ -12,6 +12,8 @@ public class Game : MonoBehaviour, IDataPersistence
     public RawImage newEgg;
     public GameObject textOvo;
 
+
+
     public GameObject piriquito = null;
     [SerializeField] public DateTime lastComida;
     [SerializeField] public DateTime lastDiversao;
