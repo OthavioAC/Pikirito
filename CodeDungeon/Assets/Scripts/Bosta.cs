@@ -23,7 +23,6 @@ public class Bosta : MonoBehaviour
                 if (poopObj == this.gameObject)
                 {
                     ind = i;
-                    Debug.Log(i);
                 }
                 i++;
             }
@@ -31,7 +30,6 @@ public class Bosta : MonoBehaviour
             {
                 game.GetComponent<Game>().poops.RemoveAt(ind);
                 game.GetComponent<Game>().CocosInScreen.RemoveAt(ind);
-                Debug.Log(game.GetComponent<Game>().poops);
             }
             else
             {
