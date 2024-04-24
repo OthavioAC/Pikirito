@@ -34,6 +34,7 @@ public class AnimationCoinGain : MonoBehaviour
         float distance = Vector3.Distance(this.transform.position, upperLeft);
         if(distance<=10.2)
         {
+            game.GetComponent<Game>().moedas += 1;
             Destroy(gameObject);
         }
     }

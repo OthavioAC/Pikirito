@@ -16,6 +16,7 @@ public class GameData
     public string lastSujeira;
     public string lastEnergia;
     public string lastCagar;
+    public int moedas;
 
     public GameData() 
     {
@@ -28,5 +29,6 @@ public class GameData
         lastSujeira = "00010101-000000";
         lastEnergia = "00010101-000000";
         lastCagar = "00010101-000000";
+        moedas = 0;
     }
 }

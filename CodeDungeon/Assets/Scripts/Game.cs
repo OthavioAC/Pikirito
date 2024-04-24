@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class Game : MonoBehaviour, IDataPersistence
     public Camera cam; 
     public RawImage newEgg;
     public GameObject textOvo;
-
+    public GameObject textMoedas;
 
 
     public GameObject piriquito = null;
@@ -23,6 +24,7 @@ public class Game : MonoBehaviour, IDataPersistence
     [SerializeField] public DateTime lastCagar;
     [SerializeField] public int energyPoints = 10;
     [SerializeField] public List<Vector2> poops = new List<Vector2>();
+    [SerializeField] public int moedas = 0;
 
     public List<GameObject> CocosInScreen = new List<GameObject>();
 
@@ -62,6 +64,7 @@ public class Game : MonoBehaviour, IDataPersistence
         this.piriquito = data.piriquito;
         this.energyPoints = data.energyPoints;
         this.poops = data.poops;
+        this.moedas = data.moedas;
         ToStart();
     }
 
@@ -76,12 +79,13 @@ public class Game : MonoBehaviour, IDataPersistence
         data.piriquito = this.piriquito;
         data.energyPoints = this.energyPoints;
         data.poops = this.poops;
+        data.moedas = this.moedas;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        textMoedas.GetComponent<TextMeshPro>().text = moedas.ToString();
     }
 }
