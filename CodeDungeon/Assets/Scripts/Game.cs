@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour, IDataPersistence
-{
-
+{ 
+    public Camera cam; 
     public RawImage newEgg;
     public GameObject textOvo;
 
@@ -23,6 +23,8 @@ public class Game : MonoBehaviour, IDataPersistence
     [SerializeField] public DateTime lastCagar;
     [SerializeField] public int energyPoints = 10;
     [SerializeField] public List<Vector2> poops = new List<Vector2>();
+
+    public List<GameObject> CocosInScreen = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()

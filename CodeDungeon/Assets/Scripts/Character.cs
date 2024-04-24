@@ -61,8 +61,10 @@ public class Character : MonoBehaviour
         {
             foreach (Vector2 poopPos in gameScript.poops)
             {
+                bosta.GetComponent<Bosta>().game = gameObjecte.gameObject;
                 var bostacoco = Instantiate(bosta, transform.parent);
                 bostacoco.transform.position = poopPos;
+                gameScript.CocosInScreen.Add(bostacoco);
             }
         }
 
@@ -117,8 +119,10 @@ public class Character : MonoBehaviour
         }
         if (cagar)
         {
+            bosta.GetComponent<Bosta>().game = gameObjecte.gameObject;
             GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
             gameScript.poops.Add(bostaInst.transform.position);
+            gameScript.CocosInScreen.Add(bostaInst);
             return true;
         }
         else return false;
