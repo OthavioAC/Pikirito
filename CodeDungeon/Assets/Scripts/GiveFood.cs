@@ -49,6 +49,11 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
         else
         {
+            if(Input.GetMouseButtonDown(0))
+            {
+                itemPuxado = Instantiate(Foods[idFoodActual],transform);
+                itemPuxado.SetActive(false);
+            }
             if(activated.activeSelf)
             {
                 blocked = true;
@@ -59,11 +64,18 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         blocked = false;
+        if(itemPuxado != null)
+        {
+            Destroy(itemPuxado);
+            itemPuxado = null;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         activated.SetActive(false);
+        itemPuxado.SetActive(true);
+        itemPuxado.transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
