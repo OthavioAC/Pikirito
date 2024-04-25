@@ -5,6 +5,7 @@ using UnityEngine;
 public class FoodOpt : MonoBehaviour
 {
     public GameObject foodObj;
+    public GameObject GiveFood;
     public bool foodAberto = false;
 
     void Start()
@@ -21,7 +22,8 @@ public class FoodOpt : MonoBehaviour
         }
         else
         {
-            foodAberto=true;
+            GiveFood.GetComponent<GiveFood>().ResetFoodCount();
+            foodAberto =true;
             foodObj.SetActive(true);
         }
     }

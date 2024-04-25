@@ -72,11 +72,11 @@
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
-    <Compile Include="Assets\Scripts\BlockMove.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\OldGame\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\NewEgg.cs" />
+    <Compile Include="Assets\Scripts\GiveFood.cs" />
     <Compile Include="Assets\OldGame\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\Egg.cs" />
     <Compile Include="Assets\OldGame\Scripts\SideBlock.cs" />

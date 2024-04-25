@@ -17,6 +17,7 @@ public class GameData
     public string lastEnergia;
     public string lastCagar;
     public int moedas;
+    public List<int> FoodCount;
 
     public GameData() 
     {
@@ -30,5 +31,6 @@ public class GameData
         lastEnergia = "00010101-000000";
         lastCagar = "00010101-000000";
         moedas = 0;
+        FoodCount = new List<int>();
     }
 }

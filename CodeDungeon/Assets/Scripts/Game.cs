@@ -25,13 +25,13 @@ public class Game : MonoBehaviour, IDataPersistence
     [SerializeField] public int energyPoints = 10;
     [SerializeField] public List<Vector2> poops = new List<Vector2>();
     [SerializeField] public int moedas = 0;
+    [SerializeField] public List<int> FoodCount = new List<int>();
 
     public List<GameObject> CocosInScreen = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     public void ToStart()
@@ -50,8 +50,23 @@ public class Game : MonoBehaviour, IDataPersistence
             Instantiate(piriquito, transform.parent);
             textOvo.SetActive(false);
         }
+
+        IniatilizeFoodCount();
     }
 
+    public void IniatilizeFoodCount()
+    {
+        if(FoodCount.Count == 0) 
+        {
+            FoodCount.Add(3); //Cenoura
+        }
+
+        //Se adicionar novas comidas deixa 0 automaticamente, só mudar o o valor pra quantidade desejada
+        while (FoodCount.Count < 1)
+        {
+            FoodCount.Add(0);
+        }
+    }
 
     public void LoadData(GameData data)
     {
@@ -65,6 +80,7 @@ public class Game : MonoBehaviour, IDataPersistence
         this.energyPoints = data.energyPoints;
         this.poops = data.poops;
         this.moedas = data.moedas;
+        this.FoodCount = data.FoodCount;
         ToStart();
     }
 
@@ -80,6 +96,7 @@ public class Game : MonoBehaviour, IDataPersistence
         data.energyPoints = this.energyPoints;
         data.poops = this.poops;
         data.moedas = this.moedas;
+        data.FoodCount = this.FoodCount;
     }
 
 

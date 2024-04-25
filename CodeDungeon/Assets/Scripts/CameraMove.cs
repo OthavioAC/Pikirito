@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Unity.Collections.AllocatorManager;
 
 public class CameraMove : MonoBehaviour 
 {
@@ -14,7 +15,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private int size = 250;
     private Vector3 dragOrigin;
 
-    public List<bool> blocks = new List<bool>();
+    public GameObject foodBlock;
 
     private void Awake()
     {
@@ -33,15 +34,7 @@ public class CameraMove : MonoBehaviour
     private void PanCamera()
     {
 
-        bool blocked = false;
-        foreach (var block in blocks)
-        {
-            if(block)
-            {
-                blocked = true;
-            }
-        }
-        if(!blocked)
+        if (!foodBlock.GetComponent<GiveFood>().GetBlocked())
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -63,7 +56,6 @@ public class CameraMove : MonoBehaviour
             }
         }
     }
-
     public void ZoomIn()
     {
         float newSize = cam.orthographicSize - zoomStep;
