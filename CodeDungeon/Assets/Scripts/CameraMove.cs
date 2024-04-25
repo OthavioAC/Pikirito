@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraMove : MonoBehaviour 
 {
@@ -11,6 +14,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private int size = 250;
     private Vector3 dragOrigin;
 
+    public List<bool> blocks = new List<bool>();
 
     private void Awake()
     {
@@ -20,6 +24,7 @@ public class CameraMove : MonoBehaviour
         maxSizeY = size;
 
     }
+
     private void Update()
     {
         PanCamera();
@@ -27,23 +32,35 @@ public class CameraMove : MonoBehaviour
 
     private void PanCamera()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
 
-        if (Input.GetMouseButton(0))
+        bool blocked = false;
+        foreach (var block in blocks)
         {
-            Vector3 differ = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position = ClampCamera(cam.transform.position + differ);
+            if(block)
+            {
+                blocked = true;
+            }
         }
-        if (Input.mouseScrollDelta.y > 0)
+        if(!blocked)
         {
-            ZoomIn();
-        }
-        if (Input.mouseScrollDelta.y < 0)
-        {
-            ZoomOut();
+            if (Input.GetMouseButtonDown(0))
+            {
+                dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 differ = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
+                cam.transform.position = ClampCamera(cam.transform.position + differ);
+            }
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                ZoomIn();
+            }
+            if (Input.mouseScrollDelta.y < 0)
+            {
+                ZoomOut();
+            }
         }
     }
 
@@ -82,5 +99,11 @@ public class CameraMove : MonoBehaviour
         maxSizeX = size;
         minSizeY = -size;
         maxSizeY = size;
+    }
+
+
+    private void OnMouseDown()
+    {
+        
     }
 }

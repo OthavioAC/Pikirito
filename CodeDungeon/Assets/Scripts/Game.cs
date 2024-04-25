@@ -86,6 +86,6 @@ public class Game : MonoBehaviour, IDataPersistence
     // Update is called once per frame
     void Update()
     {
-        textMoedas.GetComponent<TextMeshPro>().text = moedas.ToString();
+        if(moedas !=null) textMoedas.GetComponent<TextMeshProUGUI>().text = moedas.ToString();
     }
 }
