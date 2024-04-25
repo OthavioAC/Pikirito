@@ -11,7 +11,7 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 {
     public GameObject game;
     private bool blocked = false;
-    private GameObject ItemPuxado;
+    public GameObject itemPuxado;
     public GameObject activated;
     public GameObject foodCountText;
 
