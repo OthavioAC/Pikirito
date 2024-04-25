@@ -12,6 +12,7 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public GameObject game;
     private bool blocked = false;
     public GameObject itemPuxado;
+    private bool puxando = false;
     public GameObject activated;
     public GameObject foodCountText;
 
@@ -43,9 +44,9 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(activated==null)
+        if (!activated.activeSelf)
         {
-            blocked = true;
+
         }
         else
         {
@@ -54,10 +55,7 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 itemPuxado = Instantiate(Foods[idFoodActual],transform);
                 itemPuxado.SetActive(false);
             }
-            if(activated.activeSelf)
-            {
-                blocked = true;
-            }
+            blocked = true;
         }
     }
 
@@ -73,13 +71,21 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        activated.SetActive(false);
-        itemPuxado.SetActive(true);
-        itemPuxado.transform.position = eventData.position;
+        if(itemPuxado != null)
+        {
+            puxando = true;
+            activated.SetActive(false);
+            itemPuxado.SetActive(true);
+            itemPuxado.transform.position = eventData.position;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        activated.SetActive(true);
+        if(puxando)
+        {
+            puxando = false;
+            activated.SetActive(true);
+        }
     }
 }
