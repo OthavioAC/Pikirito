@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public Animator anim;
     public GameObject bosta;
     public GameObject balao;
+    public GameObject banhoPart;
 
     public float velocidade = 5f; // Velocidade de movimento
     public Vector2 limiteMin; // Canto inferior esquerdo da área
@@ -43,6 +44,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        banhoPart.SetActive(false);
         gameScript = gameObjecte.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
         if (gameScript.lastComida.Year == 1)

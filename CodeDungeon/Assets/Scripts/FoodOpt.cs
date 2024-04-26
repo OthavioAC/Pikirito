@@ -6,7 +6,7 @@ public class FoodOpt : MonoBehaviour
 {
     public GameObject foodObj;
     public GameObject GiveFood;
-    public bool foodAberto = false;
+    public GameObject banhoToggle;
 
     void Start()
     {
@@ -15,15 +15,14 @@ public class FoodOpt : MonoBehaviour
 
     public void ToggleFood() 
     {
-        if(foodAberto)
+        if(foodObj.activeSelf)
         {
-            foodAberto=false;
             foodObj.SetActive(false);
         }
         else
         {
+            banhoToggle.SetActive(false);
             GiveFood.GetComponent<GiveFood>().ResetFoodCount();
-            foodAberto =true;
             foodObj.SetActive(true);
         }
     }
