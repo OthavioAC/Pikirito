@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using static Unity.Collections.AllocatorManager;
 public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler
 {
     public GameObject game;
+    public Camera cam;
     private bool blocked = false;
     public GameObject itemPuxado;
     private bool puxando = false;
@@ -52,8 +54,12 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         {
             if(Input.GetMouseButtonDown(0))
             {
-                itemPuxado = Instantiate(Foods[idFoodActual],transform);
-                itemPuxado.SetActive(false);
+                if (game.GetComponent<Game>().FoodCount[idFoodActual] > 0)
+                {
+                    itemPuxado = Instantiate(Foods[idFoodActual], transform);
+                    itemPuxado.SetActive(false);
+
+                }
             }
             blocked = true;
         }
@@ -84,6 +90,15 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if(puxando)
         {
+            var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
+            mousepos.z = 0;
+            float distance = Vector3.Distance(mousepos,game.GetComponent<Game>().piriquito.transform.position);
+            if(distance < 1) 
+            {
+                game.GetComponent<Game>().lastComida = DateTime.Now;
+                game.GetComponent<Game>().FoodCount[idFoodActual] -= 1;
+                ResetFoodCount();
+            }
             puxando = false;
             activated.SetActive(true);
         }

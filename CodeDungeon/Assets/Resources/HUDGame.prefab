@@ -146,7 +146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8837918613457527672}
   - component: {fileID: 1622699887338567042}
-  - component: {fileID: 8595248777389056395}
   - component: {fileID: 410004109409212417}
   m_Layer: 5
   m_Name: NewEgg
@@ -183,33 +182,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772650686751117616}
   m_CullTransparentMesh: 1
---- !u!114 &8595248777389056395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772650686751117616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.99177, g: 1, b: 0.23113209, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &410004109409212417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,11 +387,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4f3df328c95a24c84fcb034d02f366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newEgg: {fileID: 8595248777389056395}
+  cam: {fileID: 0}
+  newEgg: {fileID: 0}
   textOvo: {fileID: 404218665837495677}
+  textMoedas: {fileID: 0}
   piriquito: {fileID: 0}
   energyPoints: 10
   poops: []
+  moedas: 0
+  FoodCount: 
+  CocosInScreen: []
 --- !u!114 &9085581002890163861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +437,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8595248777389056395}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

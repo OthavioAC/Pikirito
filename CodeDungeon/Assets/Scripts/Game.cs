@@ -10,8 +10,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour, IDataPersistence
 { 
     public Camera cam; 
-    public RawImage newEgg;
-    public GameObject textOvo;
+    public Image newEgg;
     public GameObject textMoedas;
 
 
@@ -32,6 +31,7 @@ public class Game : MonoBehaviour, IDataPersistence
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     public void ToStart()
@@ -48,7 +48,6 @@ public class Game : MonoBehaviour, IDataPersistence
                 piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
             }
             Instantiate(piriquito, transform.parent);
-            textOvo.SetActive(false);
         }
 
         IniatilizeFoodCount();

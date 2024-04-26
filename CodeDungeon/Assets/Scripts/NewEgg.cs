@@ -6,7 +6,6 @@ public class NewEgg : MonoBehaviour
 {
     public GameObject game;
     public GameObject egg;
-    public GameObject textOvo;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class NewEgg : MonoBehaviour
             Instantiate(egg);
             game.GetComponent<Game>().piriquito = egg;
             game.GetComponent<Game>().newEgg.enabled = false;
-            textOvo.SetActive(false);
         }
     }
 }
