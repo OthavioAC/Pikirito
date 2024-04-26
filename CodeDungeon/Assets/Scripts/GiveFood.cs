@@ -18,12 +18,12 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public GameObject activated;
     public GameObject foodCountText;
 
-    private int idFoodActual = 0;
-    public List<GameObject> Foods = new List<GameObject>();
-
+    public int idFoodActual = 0;
+    public List<GameObject> foods = new List<GameObject>();
+    
     private void Start()
     {
-        Instantiate(Foods[0], activated.transform);
+        Instantiate(foods[0], activated.transform);
     }
 
 
@@ -56,7 +56,7 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             {
                 if (game.GetComponent<Game>().FoodCount[idFoodActual] > 0)
                 {
-                    itemPuxado = Instantiate(Foods[idFoodActual], transform);
+                    itemPuxado = Instantiate(foods[idFoodActual], transform);
                     itemPuxado.SetActive(false);
 
                 }
@@ -90,17 +90,20 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         if(puxando)
         {
-            var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mousepos.z = 0;
-            float distance = Vector3.Distance(mousepos,game.GetComponent<Game>().piriquito.transform.position);
-            if(distance < 1) 
+            if(game.GetComponent<Game>().piriquitoObj!=null)
             {
-                game.GetComponent<Game>().lastComida = DateTime.Now;
-                game.GetComponent<Game>().FoodCount[idFoodActual] -= 1;
-                ResetFoodCount();
+                var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
+                mousepos.z = 0;
+                float distance = Vector3.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
+                if (distance < 1)
+                {
+                    game.GetComponent<Game>().lastComida = DateTime.Now;
+                    game.GetComponent<Game>().FoodCount[idFoodActual] -= 1;
+                    ResetFoodCount();
+                }
+                puxando = false;
+                activated.SetActive(true);
             }
-            puxando = false;
-            activated.SetActive(true);
         }
     }
 }

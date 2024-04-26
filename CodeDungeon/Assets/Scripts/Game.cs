@@ -15,6 +15,7 @@ public class Game : MonoBehaviour, IDataPersistence
 
 
     public GameObject piriquito = null;
+    public GameObject piriquitoObj = null;
     [SerializeField] public DateTime lastComida;
     [SerializeField] public DateTime lastDiversao;
     [SerializeField] public DateTime lastAgua;
@@ -47,7 +48,7 @@ public class Game : MonoBehaviour, IDataPersistence
             {
                 piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
             }
-            Instantiate(piriquito, transform.parent);
+            piriquitoObj = Instantiate(piriquito, transform.parent);
         }
 
         IniatilizeFoodCount();

@@ -16,6 +16,7 @@ public class CameraMove : MonoBehaviour
     private Vector3 dragOrigin;
 
     public GameObject foodBlock;
+    public GameObject foodBuyBlock;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class CameraMove : MonoBehaviour
     private void PanCamera()
     {
 
-        if (!foodBlock.GetComponent<GiveFood>().GetBlocked())
+        if (!foodBlock.GetComponent<GiveFood>().GetBlocked()&&!foodBuyBlock.GetComponent<BuyFood>().GetBlocked())
         {
             if (Input.GetMouseButtonDown(0))
             {
