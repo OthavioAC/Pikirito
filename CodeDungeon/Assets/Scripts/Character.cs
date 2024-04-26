@@ -112,7 +112,7 @@ public class Character : MonoBehaviour
                 cagar = true;
             }
         }
-        if (stat_Comida == "Cheio" || stat_Comida == "Neutro")
+        else if (stat_Comida == "Cheio" || stat_Comida == "Neutro")
         {
             if (horaspracagar >= 8)
             {
@@ -179,6 +179,7 @@ public class Character : MonoBehaviour
 
     private bool CheckBalao()
     {
+        var statename = "none";
         if (balaoTime <= balaoTimeMax)
         {
             balaoTime += Time.deltaTime;
@@ -189,34 +190,40 @@ public class Character : MonoBehaviour
         if (stat_Comida == "Com Fome" ||
             stat_Comida == "Esfomeado")
         {
+            statename = "food";
             stats.Add(stat_Comida);
         }
 
+        /*
         if (stat_Diversao == "Triste" ||
             stat_Diversao == "Depressivo")
         {
             stats.Add(stat_Diversao);
         }
-
         if (stat_Agua == "Muita Sede" ||
             stat_Agua == "Com Sede")
         {
             stats.Add(stat_Agua);
         }
-
-        if (stat_Sujeira == "Podre" ||
-            stat_Sujeira == "Sujo")
-        {
-            stats.Add(stat_Sujeira);
-        }
-
         if (gameScript.energyPoints <= 0)
         {
             stats.Add("Cansado");
         }
+        */
+
+
+        if (stat_Sujeira == "Podre" ||
+            stat_Sujeira == "Sujo")
+        {
+            statename = "sujo";
+            stats.Add(stat_Sujeira);
+        }
+
         if(stats.Count > 0)
         {
-            Instantiate(balao, transform);
+            var balaoObj = balao;
+            balaoObj.GetComponent<Balao>().iconName = statename;
+            Instantiate(balaoObj, transform);
         }
         return true;
     }

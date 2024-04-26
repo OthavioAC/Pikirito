@@ -5,7 +5,8 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
+
+using UnityEngine.UI;
 using static Unity.Collections.AllocatorManager;
 
 public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler
@@ -17,6 +18,8 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     private bool puxando = false;
     public GameObject activated;
     public GameObject foodCountText;
+
+    public Image imagemCol;
 
     public int idFoodActual = 0;
     public List<GameObject> foods = new List<GameObject>();
@@ -46,9 +49,10 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (!activated.activeSelf)
         {
-
+           
         }
         else
         {

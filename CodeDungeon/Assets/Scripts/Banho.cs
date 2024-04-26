@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using static Unity.Collections.AllocatorManager;
 
 public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IEndDragHandler
@@ -13,6 +14,8 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
     public GameObject game;
     public Camera cam;
     private bool blocked = false;
+
+    public Image imagemCol;
 
     private bool puxando = false;
     public GameObject sabonete;
@@ -29,8 +32,7 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
-        if (!gameObject.activeSelf)
+        if (!banho.activeSelf)
         {
 
         }

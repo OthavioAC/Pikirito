@@ -4918,7 +4918,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
 --- !u!114 &1760730003340336124
 MonoBehaviour:
   m_ObjectHideFlags: 0

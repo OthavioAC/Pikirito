@@ -1,29 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FoodOpt : MonoBehaviour
 {
+    public GameObject banho;
+    public GameObject banhoObj;
+    public GameObject food;
     public GameObject foodObj;
-    public GameObject GiveFood;
-    public GameObject banhoToggle;
 
     void Start()
     {
-        foodObj.SetActive(false);
+        foodObj.GetComponent<GiveFood>().imagemCol.enabled = false;
+        food.SetActive(false);
     }
 
     public void ToggleFood() 
     {
-        if(foodObj.activeSelf)
+        banhoObj.GetComponent<Banho>().imagemCol.enabled = false;
+        foodObj.GetComponent<GiveFood>().imagemCol.enabled = false;
+
+        if (food.activeSelf)
         {
-            foodObj.SetActive(false);
+            food.SetActive(false);
         }
         else
         {
-            banhoToggle.SetActive(false);
-            GiveFood.GetComponent<GiveFood>().ResetFoodCount();
-            foodObj.SetActive(true);
+            banho.SetActive(false);
+            foodObj.GetComponent<GiveFood>().ResetFoodCount();
+            foodObj.GetComponent<GiveFood>().imagemCol.enabled = true;
+            food.SetActive(true);
         }
     }
 }

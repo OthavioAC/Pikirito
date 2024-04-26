@@ -42,6 +42,7 @@ public class BuyFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 {
                     game.GetComponent<Game>().FoodCount[idFood] += 1;
                     game.GetComponent<Game>().moedas -= foodPrices[idFood];
+                    giveFood.GetComponent<GiveFood>().ResetFoodCount();
                 }
             }
             blocked = true;
