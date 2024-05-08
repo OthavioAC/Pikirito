@@ -66,7 +66,7 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
                 var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
                 mousepos.z = 0;
                 float distance = Vector3.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
-                if (distance < 2)
+                if (distance < 4)
                 {
                     game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.SetActive(true);
                     game.GetComponent<Game>().lastSujeira = DateTime.Now;

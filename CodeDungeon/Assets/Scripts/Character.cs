@@ -62,6 +62,7 @@ public class Character : MonoBehaviour
         }
         else
         {
+            gameScript.InitAgua();
             foreach (Vector2 poopPos in gameScript.poops)
             {
                 bosta.GetComponent<Bosta>().game = gameObjecte.gameObject;
@@ -129,6 +130,7 @@ public class Character : MonoBehaviour
             return true;
         }
         else return false;
+        
     }
 
 

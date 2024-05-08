@@ -12,6 +12,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
+    private bool loaded = false;
     public static DataPersistenceManager instance { get; private set; }
 
     private void Awake()
@@ -37,6 +38,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        loaded = true;
         this.gameData = dataHandler.Load();
         if(this.gameData == null)
         {
@@ -65,6 +67,11 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+
+    private void OnApplicationPause()
+    {
+        if(loaded) SaveGame();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

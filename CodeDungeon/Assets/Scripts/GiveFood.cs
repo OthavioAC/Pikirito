@@ -99,7 +99,7 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
                 mousepos.z = 0;
                 float distance = Vector3.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
-                if (distance < 1)
+                if (distance < 2)
                 {
                     game.GetComponent<Game>().lastComida = DateTime.Now;
                     game.GetComponent<Game>().FoodCount[idFoodActual] -= 1;
