@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poteVazio: {fileID: 21300000, guid: 9d7330d1e1f4fbb47928a74647fd1dcd, type: 3}
-  PoteCheio: {fileID: 21300000, guid: 7aa57768ea8d69a4cad0dc5e6cb9e890, type: 3}
+  poteCheio: {fileID: 21300000, guid: 7aa57768ea8d69a4cad0dc5e6cb9e890, type: 3}
   game: {fileID: 6655281972638078523}
 --- !u!114 &91024343838872041
 MonoBehaviour:

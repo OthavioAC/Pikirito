@@ -14,5 +14,6 @@ public class DebugSpeedUP : MonoBehaviour
         scri.lastComida = scri.lastComida.AddHours(-1);
         scri.lastCagar = scri.lastCagar.AddHours(-1);
         scri.lastSujeira = scri.lastSujeira.AddHours(-1);
+        scri.lastAgua = scri.lastAgua.AddHours(-1);
     }
 }

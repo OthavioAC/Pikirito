@@ -65,6 +65,17 @@ public class Character : MonoBehaviour
         else
         {
             gameScript.InitAgua();
+            if (gameScript.tijelaEnxida)
+            {
+                DateTime dat = DateTime.Now;
+                DateTime datSemAguaDate = dat.AddTicks(-gameScript.lastAgua.Ticks);
+                int datSemAgua = (datSemAguaDate.Hour) + (datSemAguaDate.Day * 24) + (datSemAguaDate.Month * 720) + (datSemAguaDate.Year * 8760) - 8760 - 720 - 24;
+                if(datSemAgua>=8)
+                {
+                    gameScript.BebeuAgua();
+                    gameScript.lastAgua = gameScript.lastAgua.AddHours(8);
+                }
+            }
             foreach (Vector2 poopPos in gameScript.poops)
             {
                 bosta.GetComponent<Bosta>().game = gameObjecte.gameObject;
@@ -87,6 +98,8 @@ public class Character : MonoBehaviour
 
         CheckIfFedido();
 
+        CheckIfSede();
+
         Pooping(transform.position);
 
         CheckBalao();
@@ -103,6 +116,11 @@ public class Character : MonoBehaviour
         return new Vector2(posx,posy);
     }
 
+
+    private void CheckIfSede()
+    {
+
+    }
     private void CheckIfFedido()
     {
         if (stat_Sujeira=="Podre"|| stat_Sujeira == "Sujo")
@@ -206,7 +224,8 @@ public class Character : MonoBehaviour
         balaoTime = 0;
         List<String> stats = new List<String>();
         if (stat_Comida == "Com Fome" ||
-            stat_Comida == "Esfomeado")
+            stat_Comida == "Esfomeado" ||
+            stat_Comida == "Morto - Fome")
         {
             statename = "food";
             stats.Add(stat_Comida);
@@ -218,17 +237,20 @@ public class Character : MonoBehaviour
         {
             stats.Add(stat_Diversao);
         }
-        if (stat_Agua == "Muita Sede" ||
-            stat_Agua == "Com Sede")
-        {
-            stats.Add(stat_Agua);
-        }
+        
         if (gameScript.energyPoints <= 0)
         {
             stats.Add("Cansado");
         }
         */
 
+        if (stat_Agua == "Muita Sede" ||
+            stat_Agua == "Com Sede" ||
+            stat_Agua == "Morto - Sede")
+        {
+            stats.Add(stat_Agua);
+            statename = "sede";
+        }
 
         if (stat_Sujeira == "Podre" ||
             stat_Sujeira == "Sujo")

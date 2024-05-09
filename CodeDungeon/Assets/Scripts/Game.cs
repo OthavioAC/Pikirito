@@ -82,6 +82,12 @@ public class Game : MonoBehaviour, IDataPersistence
         tijela.GetComponent<Vazilha>().StartTijela(tijelaEnxida);
     }
 
+    public void BebeuAgua()
+    {
+        tijelaEnxida = false;
+        tijela.GetComponent<SpriteRenderer>().sprite = tijela.GetComponent<Vazilha>().poteVazio;
+    }
+
     public void LoadData(GameData data)
     {
         this.lastComida = DateTime.ParseExact(data.lastComida, "yyyyMMdd-HHmmss",CultureInfo.InvariantCulture);

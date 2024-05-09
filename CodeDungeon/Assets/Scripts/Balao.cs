@@ -21,7 +21,7 @@ public class Balao : MonoBehaviour
         if(!iconMake)
         {
             time += Time.deltaTime;
-            if (time > 1)
+            if (time > 0.5)
             {
                 iconMake = true;
                 switch (iconName)
@@ -34,6 +34,11 @@ public class Balao : MonoBehaviour
                     case "sujo":
                         {
                             icons[1].SetActive(true);
+                            break;
+                        }
+                    case "sede":
+                        {
+                            icons[2].SetActive(true);
                             break;
                         }
                 }

@@ -22,7 +22,7 @@ public class Vazilha : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             game.GetComponent<Game>().EncherTijela();
             this.GetComponent<SpriteRenderer>().sprite = poteCheio;
