@@ -65,15 +65,15 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
             {
                 var mousepos = cam.ScreenToWorldPoint(Input.mousePosition);
                 mousepos.z = 0;
-                float distance = Vector3.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
-                if (distance < 4)
+                float distance = Vector2.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
+                if (distance < 2)
                 {
-                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.SetActive(true);
+                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().Play();
                     game.GetComponent<Game>().lastSujeira = DateTime.Now;
                 }
                 else
                 {
-                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.SetActive(false);
+                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().Stop();
                 }
             }
             puxando = true;
@@ -89,7 +89,7 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
         {
             if (game.GetComponent<Game>().piriquitoObj != null)
             {
-                game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.SetActive(false);
+                game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().Stop();
             }
             puxando = false;
             banho.SetActive(true);

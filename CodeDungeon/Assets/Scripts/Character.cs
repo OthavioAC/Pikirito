@@ -45,8 +45,8 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        banhoPart.SetActive(false);
-        sujoPart.SetActive(false);
+        banhoPart.GetComponent<ParticleSystem>().Stop();
+        sujoPart.GetComponent<ParticleSystem>().Stop();
         gameScript = gameObjecte.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
         if (gameScript.lastComida.Year == 1)
@@ -119,17 +119,27 @@ public class Character : MonoBehaviour
 
     private void CheckIfSede()
     {
+        if (stat_Agua == "Muita Sede" ||
+            stat_Agua == "Com Sede" ||
+            stat_Agua == "Morto - Sede")
+        {
+
+            if (gameScript.tijelaEnxida)
+            {
+                state = "Beber Agua";
+            }
+        }
 
     }
     private void CheckIfFedido()
     {
         if (stat_Sujeira=="Podre"|| stat_Sujeira == "Sujo")
         {
-            sujoPart.SetActive(true);
+            sujoPart.GetComponent<ParticleSystem>().Play();
         }
         else
         {
-            sujoPart.SetActive(false);
+            sujoPart.GetComponent<ParticleSystem>().Stop();
         }
     }
 
@@ -207,6 +217,24 @@ public class Character : MonoBehaviour
                     anim.SetFloat("MovementY", -posy);
                     transform.position = Vector2.MoveTowards(transform.position, destinoAleatorio, velocidade * Time.deltaTime);
                 }
+            }
+        }
+        if(state=="Beber Agua")
+        {
+            anim.SetBool("Idle", false);
+            var posx = transform.position.x - gameScript.tijela.transform.position.x;
+            var posy = transform.position.y - gameScript.tijela.transform.position.y;
+            anim.SetFloat("MovementX", -posx);
+            anim.SetFloat("MovementY", -posy);
+            transform.position = Vector2.MoveTowards(transform.position, gameScript.tijela.transform.position, velocidade * Time.deltaTime);
+            float dist = Vector2.Distance(transform.position, gameScript.tijela.transform.position);
+            if(dist < 1)
+            {
+
+                gameScript.BebeuAgua();
+                gameScript.lastAgua = gameScript.lastAgua.AddHours(8);
+                idleTime = 0;
+                state = "Idle";
             }
         }
     }
