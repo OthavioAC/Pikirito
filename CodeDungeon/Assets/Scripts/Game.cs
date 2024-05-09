@@ -13,6 +13,8 @@ public class Game : MonoBehaviour, IDataPersistence
     public Image newEgg;
     public GameObject textMoedas;
     public GameObject tijela;
+    public GameObject cenario;
+    public GameObject HudMinigames;
 
     public GameObject piriquito = null;
     public GameObject piriquitoObj = null;
@@ -49,7 +51,7 @@ public class Game : MonoBehaviour, IDataPersistence
             {
                 piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
             }
-            piriquitoObj = Instantiate(piriquito, transform.parent);
+            piriquitoObj = Instantiate(piriquito, cenario.transform);
         }
 
         IniatilizeFoodCount();

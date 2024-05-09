@@ -47,7 +47,6 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-
         banhoPart.GetComponent<ParticleSystem>().Stop();
         sujoPart.GetComponent<ParticleSystem>().Stop();
         emotesPart[0].Stop();

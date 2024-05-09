@@ -69,12 +69,14 @@
     <Compile Include="Assets\Scripts\AnimationCoinGain.cs" />
     <Compile Include="Assets\Scripts\FoodOpt.cs" />
     <Compile Include="Assets\Scripts\Balao.cs" />
+    <Compile Include="Assets\Scripts\MinigamesOpt.cs" />
     <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
+    <Compile Include="Assets\Scripts\CloseMinigames.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\BanhoOpt.cs" />
     <Compile Include="Assets\Scripts\Banho.cs" />

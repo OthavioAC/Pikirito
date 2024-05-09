@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bosta : MonoBehaviour
 {
     public GameObject game;
+
     public GameObject coin;
 
     private void OnMouseEnter()
