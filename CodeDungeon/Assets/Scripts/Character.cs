@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     public GameObject bosta;
     public GameObject balao;
     public GameObject banhoPart;
+    public GameObject sujoPart;
 
     public float velocidade = 5f; // Velocidade de movimento
     public Vector2 limiteMin; // Canto inferior esquerdo da área
@@ -45,6 +46,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         banhoPart.SetActive(false);
+        sujoPart.SetActive(false);
         gameScript = gameObjecte.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
         if (gameScript.lastComida.Year == 1)
@@ -83,6 +85,8 @@ public class Character : MonoBehaviour
     {
         CheckStats();
 
+        CheckIfFedido();
+
         Pooping(transform.position);
 
         CheckBalao();
@@ -97,6 +101,18 @@ public class Character : MonoBehaviour
         float yrange = (20-math.abs(posx))/2;
         float posy = Random.Range(-yrange, yrange);
         return new Vector2(posx,posy);
+    }
+
+    private void CheckIfFedido()
+    {
+        if (stat_Sujeira=="Podre"|| stat_Sujeira == "Sujo")
+        {
+            sujoPart.SetActive(true);
+        }
+        else
+        {
+            sujoPart.SetActive(false);
+        }
     }
 
     private bool Pooping(Vector2 pos)
