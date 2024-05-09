@@ -103,6 +103,8 @@ public class GiveFood : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 {
                     game.GetComponent<Game>().lastComida = DateTime.Now;
                     game.GetComponent<Game>().FoodCount[idFoodActual] -= 1;
+
+                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().emotesPart[0].Play();
                     ResetFoodCount();
                 }
                 puxando = false;

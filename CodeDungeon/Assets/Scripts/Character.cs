@@ -20,6 +20,8 @@ public class Character : MonoBehaviour
     public GameObject banhoPart;
     public GameObject sujoPart;
 
+    public List<ParticleSystem> emotesPart = new List<ParticleSystem>();
+
     public float velocidade = 5f; // Velocidade de movimento
     public Vector2 limiteMin; // Canto inferior esquerdo da área
     public Vector2 limiteMax; // Canto superior direito da área
@@ -45,8 +47,12 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+
         banhoPart.GetComponent<ParticleSystem>().Stop();
         sujoPart.GetComponent<ParticleSystem>().Stop();
+        emotesPart[0].Stop();
+        emotesPart[1].Stop();
+        emotesPart[2].Stop();
         gameScript = gameObjecte.GetComponent<Game>();
         transform.position = new Vector2(0, 0);
         if (gameScript.lastComida.Year == 1)
@@ -171,6 +177,7 @@ public class Character : MonoBehaviour
             GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
             gameScript.poops.Add(bostaInst.transform.position);
             gameScript.CocosInScreen.Add(bostaInst);
+            emotesPart[1].Play();
             return true;
         }
         else return false;
@@ -230,10 +237,10 @@ public class Character : MonoBehaviour
             float dist = Vector2.Distance(transform.position, gameScript.tijela.transform.position);
             if(dist < 1)
             {
-
                 gameScript.BebeuAgua();
                 gameScript.lastAgua = gameScript.lastAgua.AddHours(8);
                 idleTime = 0;
+                emotesPart[1].Play();
                 state = "Idle";
             }
         }
@@ -289,6 +296,8 @@ public class Character : MonoBehaviour
 
         if(stats.Count > 0)
         {
+
+            emotesPart[2].Play();
             var balaoObj = balao;
             balaoObj.GetComponent<Balao>().iconName = statename;
             Instantiate(balaoObj, transform);
