@@ -68,7 +68,10 @@ public class Banho : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
                 float distance = Vector2.Distance(mousepos, game.GetComponent<Game>().piriquitoObj.transform.position);
                 if (distance < 2)
                 {
-                    game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().Play();
+                    if (!game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().isPlaying)
+                    {
+                        game.GetComponent<Game>().piriquitoObj.GetComponent<Character>().banhoPart.GetComponent<ParticleSystem>().Play();
+                    }
                     game.GetComponent<Game>().lastSujeira = DateTime.Now;
                 }
                 else

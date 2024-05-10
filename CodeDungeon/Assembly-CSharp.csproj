@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\BanhoOpt.cs" />
     <Compile Include="Assets\Scripts\Banho.cs" />
+    <Compile Include="Assets\Scripts\StartMinigame.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\OldGame\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\NewEgg.cs" />

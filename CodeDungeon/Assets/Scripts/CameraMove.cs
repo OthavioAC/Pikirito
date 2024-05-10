@@ -13,6 +13,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private float zoomStep, minCamSize, maxCamSize;
     [SerializeField] private float minSizeX, maxSizeX, minSizeY, maxSizeY;
     [SerializeField] private int size = 250;
+    public GameObject Cenario;
     private Vector3 dragOrigin;
 
     public GameObject foodBlock;
@@ -30,7 +31,7 @@ public class CameraMove : MonoBehaviour
 
     private void Update()
     {
-        PanCamera();
+        if(Cenario.activeSelf) PanCamera();
     }
 
     private void PanCamera()

@@ -47,8 +47,8 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        banhoPart.GetComponent<ParticleSystem>().Stop();
-        sujoPart.GetComponent<ParticleSystem>().Stop();
+        banhoPart.GetComponent<ParticleSystem>().Pause();
+        sujoPart.GetComponent<ParticleSystem>().Pause();
         emotesPart[0].Stop();
         emotesPart[1].Stop();
         emotesPart[2].Stop();
@@ -140,7 +140,10 @@ public class Character : MonoBehaviour
     {
         if (stat_Sujeira=="Podre"|| stat_Sujeira == "Sujo")
         {
-            sujoPart.GetComponent<ParticleSystem>().Play();
+            if(!sujoPart.GetComponent<ParticleSystem>().isPlaying)
+            {
+                sujoPart.GetComponent<ParticleSystem>().Play();
+            }
         }
         else
         {
@@ -173,7 +176,7 @@ public class Character : MonoBehaviour
         if (cagar)
         {
             bosta.GetComponent<Bosta>().game = gameObjecte.gameObject;
-            GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity);
+            GameObject bostaInst = Instantiate(bosta, pos, Quaternion.identity,gameObjecte.transform);
             gameScript.poops.Add(bostaInst.transform.position);
             gameScript.CocosInScreen.Add(bostaInst);
             emotesPart[1].Play();
