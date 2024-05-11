@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Minigames\1_PasseioNoCeu\Priquito_Mini1.cs" />
     <Compile Include="Assets\OldGame\Scripts\BottomSheetTab.cs" />
     <Compile Include="Assets\OldGame\Scripts\MapLayoults.cs" />
     <Compile Include="Assets\Scripts\CloseMinigames.cs" />
