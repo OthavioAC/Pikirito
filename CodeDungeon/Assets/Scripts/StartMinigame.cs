@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StartMinigame : MonoBehaviour
 {
+    public Camera cam;
     public GameObject minigame;
     public GameObject telaMinigames;
 
@@ -11,6 +12,7 @@ public class StartMinigame : MonoBehaviour
     {
         telaMinigames.SetActive(false);
         minigame.SetActive(true);
+        cam.transform.position = new Vector3(0,0,-10);
     }
 
 }
