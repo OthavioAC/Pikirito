@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8260106186277534381}
   - component: {fileID: 501180281569425450}
   - component: {fileID: 8641163984106101214}
+  - component: {fileID: 4738443291543153871}
+  - component: {fileID: -8326853104672573324}
   m_Layer: 0
   m_Name: Minigames1Enemie
-  m_TagString: Untagged
+  m_TagString: Enemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +127,82 @@ MonoBehaviour:
   - {fileID: 378964568, guid: 965dd81b25242354bb9fd536a6341485, type: 3}
   - {fileID: -1411126360, guid: 965dd81b25242354bb9fd536a6341485, type: 3}
   moeObj: {fileID: 7984832557626708110}
+  enId: 3
+  enIdCerto: 1
+  letraCerta: 15
+  certo: 0
+--- !u!61 &4738443291543153871
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081596171866934534}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0014493912, y: 0.03188324}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6034869, y: 0.55421245}
+  m_EdgeRadius: 0
+--- !u!50 &-8326853104672573324
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081596171866934534}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7984832557626708110
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 7984832557626708110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: 0.081, z: 0}
+  m_LocalPosition: {x: 0.009, y: 0.041, z: 0}
   m_LocalScale: {x: 1.6894, y: 1.6894, z: 0.28576198}
   m_ConstrainProportionsScale: 0
   m_Children: []

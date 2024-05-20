@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Minigames1Spawn : MonoBehaviour
 {
 
     public GameObject enemieObj;
+    public GameObject imagemEmCima;
+    private String[] sinaisLetra = { "A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    [SerializeField] private List<int> sinaisList = new List<int>();
     private float tempo = 0;
     private float tempoToSpawn = 0;
     // Start is called before the first frame update
@@ -19,11 +25,14 @@ public class Minigames1Spawn : MonoBehaviour
     {
         tempo += Time.deltaTime;
 
-
+        if(sinaisList.Count > 0 ) 
+        {
+            imagemEmCima.GetComponent<TextMeshProUGUI>().text = sinaisLetra[sinaisList[0]]; 
+        }
         if(tempoToSpawn < 0)
         {
-            var randi2 = Random.Range(0, 24);
-            var randi = Random.Range(0, 2);
+            var randi2 = UnityEngine.Random.Range(0, 24);
+            var randi = UnityEngine.Random.Range(1, 3);
 
 
             var en1 = enemieObj;
@@ -41,7 +50,9 @@ public class Minigames1Spawn : MonoBehaviour
             en3.GetComponent<Minigames1Enemie>().enIdCerto = randi;
             en3.GetComponent<Minigames1Enemie>().letraCerta = randi2;
             Instantiate(en3, new Vector2(transform.position.x - 3, transform.position.y), Quaternion.identity);
-            tempoToSpawn = 5;
+            tempoToSpawn = 7;
+
+            sinaisList.Add(randi2);
         }
 
         if (tempo > 150)

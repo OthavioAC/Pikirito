@@ -18,6 +18,7 @@ public class Minigames1Enemie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if(enId==enIdCerto)
         {
             moeObj.GetComponent<SpriteRenderer>().sprite = moes[letraCerta];
