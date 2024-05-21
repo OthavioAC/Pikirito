@@ -158,7 +158,6 @@ public class Character : MonoBehaviour
         DateTime dat = DateTime.Now;
         DateTime datSemCagar = dat.AddTicks(-gameScript.lastCagar.Ticks);
         var horaspracagar = (datSemCagar.Hour) + (datSemCagar.Day * 24) + (datSemCagar.Month * 720) + (datSemCagar.Year * 8760) - 8760 - 720 - 24;
-        Debug.Log(horaspracagar);
         if (stat_Comida == "Gordo")
         {
             if (horaspracagar >= 4)

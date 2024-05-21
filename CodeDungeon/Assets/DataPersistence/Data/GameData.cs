@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class GameData
 {
-    public GameObject piriquito;
+    public string piriquito;
     public int energyPoints = 10;
     public List<Vector2> poops;
     public string lastComida;
@@ -22,7 +22,7 @@ public class GameData
 
     public GameData() 
     {
-        piriquito = null;
+        piriquito = "";
         energyPoints = 10;
         poops = new List<Vector2>();
         lastComida = "00010101-000000";

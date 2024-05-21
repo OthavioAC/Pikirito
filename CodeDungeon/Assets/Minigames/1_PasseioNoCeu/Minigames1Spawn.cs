@@ -11,7 +11,7 @@ public class Minigames1Spawn : MonoBehaviour
     public GameObject enemieObj;
     public GameObject imagemEmCima;
     private String[] sinaisLetra = { "A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
-    [SerializeField] private List<int> sinaisList = new List<int>();
+    public List<int> sinaisList = new List<int>();
     private float tempo = 0;
     private float tempoToSpawn = 0;
     // Start is called before the first frame update
@@ -39,16 +39,19 @@ public class Minigames1Spawn : MonoBehaviour
             en1.GetComponent<Minigames1Enemie>().enId = 1;
             en1.GetComponent<Minigames1Enemie>().enIdCerto = randi;
             en1.GetComponent<Minigames1Enemie>().letraCerta = randi2;
+            en1.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
             Instantiate(en1, new Vector2(transform.position.x + 3, transform.position.y), Quaternion.identity);
             var en2 = enemieObj;
             en2.GetComponent<Minigames1Enemie>().enId = 2;
             en2.GetComponent<Minigames1Enemie>().enIdCerto = randi;
             en2.GetComponent<Minigames1Enemie>().letraCerta = randi2;
+            en2.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
             Instantiate(en2, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             var en3 = enemieObj;
             en3.GetComponent<Minigames1Enemie>().enId = 3;
             en3.GetComponent<Minigames1Enemie>().enIdCerto = randi;
             en3.GetComponent<Minigames1Enemie>().letraCerta = randi2;
+            en3.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
             Instantiate(en3, new Vector2(transform.position.x - 3, transform.position.y), Quaternion.identity);
             tempoToSpawn = 7;
 

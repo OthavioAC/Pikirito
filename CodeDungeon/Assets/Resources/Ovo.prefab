@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1702916306131859112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1197, y: 0.2348, z: 0}
+  m_LocalPosition: {x: -928.6147, y: -1093.0724, z: 14.3309355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -99,10 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088647b1d611bfb4281ccba9275f3024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Egg
   eggIdle: {fileID: 2380912020959262769}
   clicks: 0
   game: {fileID: 0}
   character: {fileID: 4413525026055367901, guid: 0c38aca7e1df47743b18f4cf35a52b9e, type: 3}
+  gameObjecte: {fileID: 0}
 --- !u!61 &9047478800670986887
 BoxCollider2D:
   m_ObjectHideFlags: 0

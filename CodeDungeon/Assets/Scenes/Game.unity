@@ -4710,7 +4710,9 @@ MonoBehaviour:
   tijela: {fileID: 2133182914}
   cenario: {fileID: 1244195816}
   HudMinigames: {fileID: 1773428421}
-  piriquito: {fileID: 0}
+  instEgg: {fileID: 1702916306131859112, guid: 8792fa8e3ef04584d89909d7f1eed8c0, type: 3}
+  instPiriquito: {fileID: 4413525026055367901, guid: 0c38aca7e1df47743b18f4cf35a52b9e, type: 3}
+  piriquito: 
   piriquitoObj: {fileID: 0}
   energyPoints: 10
   tijelaEnxida: 0

@@ -22,11 +22,11 @@ public class NewEgg : MonoBehaviour
 
     public void funcNewEgg()
     {
-        if (game.GetComponent<Game>().piriquito == null)
+        if (game.GetComponent<Game>().piriquito != "Egg"&& game.GetComponent<Game>().piriquito != "Piriquito")
         {
             egg.GetComponent<Egg>().game = game;
             Instantiate(egg);
-            game.GetComponent<Game>().piriquito = egg;
+            game.GetComponent<Game>().piriquito = "Egg";
             game.GetComponent<Game>().newEgg.enabled = false;
         }
     }

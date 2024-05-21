@@ -13,7 +13,7 @@ public class Minigames1Enemie : MonoBehaviour
     public int enId = -1;
     public int enIdCerto = 0;
     public int letraCerta = -1;
-
+    public GameObject spawner;
     public bool certo = false;
     // Start is called before the first frame update
     void Start()
@@ -39,5 +39,16 @@ public class Minigames1Enemie : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y-Time.deltaTime*3);
+    }
+
+    public void Destruir()
+    {
+        Destroy(gameObject);
+        spawner.GetComponent<Minigames1Spawn>().sinaisList.RemoveAt(0);
+    }
+
+    public void Perder()
+    {
+
     }
 }

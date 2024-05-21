@@ -16,7 +16,11 @@ public class Game : MonoBehaviour, IDataPersistence
     public GameObject cenario;
     public GameObject HudMinigames;
 
-    public GameObject piriquito = null;
+    public GameObject instEgg;
+    public GameObject instPiriquito;
+
+
+    public string piriquito = null;
     public GameObject piriquitoObj = null;
     [SerializeField] public DateTime lastComida;
     [SerializeField] public DateTime lastDiversao;
@@ -41,17 +45,25 @@ public class Game : MonoBehaviour, IDataPersistence
     public void ToStart()
     {
         newEgg.enabled = false;
-        if (piriquito == null)
+        if (piriquito != "Egg"&&piriquito != "Piriquito")
         {
             newEgg.enabled = true;
         }
         else
         {
-            if (piriquito.tag == "Passarinho")
+            GameObject piri;
+            if (piriquito == "Piriquito")
             {
-                piriquito.GetComponent<Character>().gameObjecte = this.gameObject;
+                piri = instPiriquito;
+                piri.GetComponent<Character>().gameObjecte = this.gameObject;
             }
-            piriquitoObj = Instantiate(piriquito, cenario.transform);
+            else
+            {
+                piri = instEgg;
+                piri.GetComponent<Egg>().game = this.gameObject;
+            }
+            piri.transform.position = -cenario.transform.position;
+            piriquitoObj = Instantiate(piri,cenario.transform);
         }
 
         IniatilizeFoodCount();

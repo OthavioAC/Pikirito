@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Loading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,6 +26,17 @@ public class Priquito_Mini1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("k");
+        var piridomal = collision.GetComponent<Minigames1Enemie>();
+        if (piridomal.enId == piridomal.enIdCerto)
+        {
+            //acertou
+            piridomal.Destruir();
+        }
+        else
+        {
+            //Perdeu
+            piridomal.Perder();
+        }
+
     }
 }
