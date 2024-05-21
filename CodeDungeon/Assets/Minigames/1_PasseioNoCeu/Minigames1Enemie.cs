@@ -38,17 +38,18 @@ public class Minigames1Enemie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y-Time.deltaTime*3);
+        if(!spawner.GetComponent<Minigames1Spawn>().pausado) transform.position = new Vector3(transform.position.x, transform.position.y-Time.deltaTime*3);
     }
 
     public void Destruir()
     {
         Destroy(gameObject);
         spawner.GetComponent<Minigames1Spawn>().sinaisList.RemoveAt(0);
+        spawner.GetComponent<Minigames1Spawn>().points += 1;
     }
 
     public void Perder()
     {
-
+        spawner.GetComponent<Minigames1Spawn>().GameOver();
     }
 }

@@ -1,13 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.UIWidgets", "Unity.UIWidgets.csproj", "{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B395E820-1D82-FA43-96BF-F788964A9024}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.UIWidgets.Editor", "Unity.UIWidgets.Editor.csproj", "{75B775B8-AA82-86C8-9ABA-5701EAD39907}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InternalAPIEngineBridge.024", "Unity.InternalAPIEngineBridge.024.csproj", "{48581154-DE2B-9DF7-BC75-A96DA568FE77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,22 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF3E4D7D-F0A3-26C4-6F6F-7ABDE7F3B6D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B395E820-1D82-FA43-96BF-F788964A9024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B395E820-1D82-FA43-96BF-F788964A9024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B395E820-1D82-FA43-96BF-F788964A9024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B395E820-1D82-FA43-96BF-F788964A9024}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75B775B8-AA82-86C8-9ABA-5701EAD39907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75B775B8-AA82-86C8-9ABA-5701EAD39907}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75B775B8-AA82-86C8-9ABA-5701EAD39907}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75B775B8-AA82-86C8-9ABA-5701EAD39907}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48581154-DE2B-9DF7-BC75-A96DA568FE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48581154-DE2B-9DF7-BC75-A96DA568FE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48581154-DE2B-9DF7-BC75-A96DA568FE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48581154-DE2B-9DF7-BC75-A96DA568FE77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

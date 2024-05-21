@@ -36,7 +36,7 @@ public class Egg : MonoBehaviour
     {
         character.GetComponent<Character>().gameObjecte = game;
         game.GetComponent<Game>().piriquito = "Piriquito";
-        game.GetComponent<Game>().piriquitoObj = Instantiate(character);
+        game.GetComponent<Game>().piriquitoObj = Instantiate(character,gameObjecte.GetComponent<Game>().cenario.transform);
         clicks = -999;
         Destroy(this.gameObject);
     }
