@@ -112,4 +112,14 @@ public class Minigames1Spawn : MonoBehaviour
         RestartBut.SetActive(true);
         BackBut.SetActive(true);   
     }
+
+    public void Restart()
+    {
+
+    }
+
+    public void Back()
+    {
+
+    }
 }
