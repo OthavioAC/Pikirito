@@ -1959,6 +1959,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   telaMinijogos: {fileID: 1773428421}
   minigame: {fileID: 1672120270}
+  nuvemSprites:
+  - {fileID: -1106514242, guid: 9241c9043b9136a409380da91f31e6c1, type: 3}
+  - {fileID: -320838777, guid: 9241c9043b9136a409380da91f31e6c1, type: 3}
+  - {fileID: -783585342, guid: 9241c9043b9136a409380da91f31e6c1, type: 3}
   comecou: 0
   spawnNuvem: 0
   nuvemObj: {fileID: 4125027612452143622, guid: 0e36d6f0cc7b087408347c0dacc7e18b, type: 3}

@@ -5,12 +5,15 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Minigames1Spawn : MonoBehaviour
 {
 
     public GameObject telaMinijogos;
     public GameObject minigame;
+
+    public List<Sprite> nuvemSprites = new List<Sprite>();
 
     public bool comecou = false;
     public float spawnNuvem = 0f;
@@ -29,6 +32,7 @@ public class Minigames1Spawn : MonoBehaviour
     private float tempo = 0;
     private float tempoToSpawn = 0;
     public List<GameObject> inimigos = new List<GameObject>();
+    public List<GameObject> nuvens = new List<GameObject>();
 
 
     public bool pausado = false;
@@ -46,13 +50,38 @@ public class Minigames1Spawn : MonoBehaviour
         pointsText.text = points.ToString();
         if (!pausado)
         {
+
+            if(!comecou)
+            {
+                var initNuvem = 0;
+                do
+                {
+                    var nuvemOb = Instantiate(nuvemObj, new Vector2(transform.position.x + UnityEngine.Random.Range(-7f, 7f), transform.position.y - UnityEngine.Random.Range(0f, 50f)), Quaternion.identity);
+                    var randomSpr = UnityEngine.Random.Range(0, 3);
+                    nuvemOb.GetComponent<SpriteRenderer>().sprite = nuvemSprites[randomSpr];
+                    if (UnityEngine.Random.Range(0, 2) == 0)
+                    {
+                        nuvemOb.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    nuvens.Add(nuvemOb);
+                    initNuvem += 1;
+                } while (initNuvem < 50);
+                comecou = true;
+            }
             tempo += Time.deltaTime;
             spawnNuvem += Time.deltaTime;
 
             if (spawnNuvem > 1)
             {
                 spawnNuvem = 0;
-                var nuvem = Instantiate(nuvemObj, new Vector2(transform.position.x + UnityEngine.Random.Range(-5, 5), transform.position.y), Quaternion.identity);
+                var nuvem = Instantiate(nuvemObj, new Vector2(transform.position.x + UnityEngine.Random.Range(-7f, 7f), transform.position.y), Quaternion.identity);
+                var randomSpr = UnityEngine.Random.Range(0,3);
+                nuvem.GetComponent<SpriteRenderer>().sprite = nuvemSprites[randomSpr];
+                if (UnityEngine.Random.Range(0,2)==0)
+                {
+                    nuvem.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                nuvens.Add(nuvem);
             }
 
             if (sinaisList.Count > 0)
@@ -124,6 +153,10 @@ public class Minigames1Spawn : MonoBehaviour
                 tempoToSpawn -= Time.deltaTime;
             }
         }
+        else
+        {
+            comecou = false;
+        }
     }
 
     private void OnBecameVisible()
@@ -160,6 +193,10 @@ public class Minigames1Spawn : MonoBehaviour
         {
             if(inimigo!=null) Destroy(inimigo);
         }
+        foreach (GameObject nuv in nuvens)
+        {
+            if (nuv != null) Destroy(nuv);
+        }
         inimigos.Clear();
         sinaisList.Clear();
     }
@@ -176,6 +213,10 @@ public class Minigames1Spawn : MonoBehaviour
         foreach (GameObject inimigo in inimigos)
         {
             if (inimigo != null) Destroy(inimigo);
+        }
+        foreach (GameObject nuv in nuvens)
+        {
+            if (nuv != null) Destroy(nuv);
         }
         inimigos.Clear();
         sinaisList.Clear();
