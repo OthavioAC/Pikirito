@@ -16,6 +16,7 @@ public class MinigamesOpt : MonoBehaviour
 
     private void Start()
     {
+        minigame1Text.text = game.GetComponent<Game>().recordeMinigame1.ToString();
         HudMinigames.SetActive(false);
     }
 
@@ -23,6 +24,14 @@ public class MinigamesOpt : MonoBehaviour
     {
         minigame1Text.text = game.GetComponent<Game>().recordeMinigame1.ToString();
     }
+
+    private void OnDisable()
+    {
+        minigame1Text.text = game.GetComponent<Game>().recordeMinigame1.ToString();
+
+    }
+
+
 
 
     public void HideCenario()

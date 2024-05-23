@@ -241,7 +241,7 @@ public class Character : MonoBehaviour
             if(dist < 1)
             {
                 gameScript.BebeuAgua();
-                gameScript.lastAgua = gameScript.lastAgua.AddHours(8);
+                gameScript.lastAgua = DateTime.Now;
                 idleTime = 0;
                 emotesPart[1].Play();
                 state = "Idle";

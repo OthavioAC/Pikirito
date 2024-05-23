@@ -12,7 +12,9 @@ public class Minigames1Spawn : MonoBehaviour
     public GameObject telaMinijogos;
     public GameObject minigame;
 
-
+    public bool comecou = false;
+    public float spawnNuvem = 0f;
+    public GameObject nuvemObj;
     public TextMeshProUGUI minigame1;
     public GameObject game;
     public GameObject enemieObj;
@@ -35,6 +37,7 @@ public class Minigames1Spawn : MonoBehaviour
     {
         RestartBut.SetActive(false);
         BackBut.SetActive(false);
+        nuvemObj.GetComponent<Minigames1Nuvem>().spawner = gameObject;
     }
 
     // Update is called once per frame
@@ -44,6 +47,13 @@ public class Minigames1Spawn : MonoBehaviour
         if (!pausado)
         {
             tempo += Time.deltaTime;
+            spawnNuvem += Time.deltaTime;
+
+            if (spawnNuvem > 1)
+            {
+                spawnNuvem = 0;
+                var nuvem = Instantiate(nuvemObj, new Vector2(transform.position.x + UnityEngine.Random.Range(-5, 5), transform.position.y), Quaternion.identity);
+            }
 
             if (sinaisList.Count > 0)
             {

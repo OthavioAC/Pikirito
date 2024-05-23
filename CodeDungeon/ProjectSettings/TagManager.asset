@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Passarinho
   - Enemy
+  - Enemie
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Hover
   - Hud2
-  - 
+  - Fundo
   - 
   - 
   - 

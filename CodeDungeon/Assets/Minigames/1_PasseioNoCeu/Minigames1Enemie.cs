@@ -26,11 +26,13 @@ public class Minigames1Enemie : MonoBehaviour
         }
         else
         {
-            var randomMoe = UnityEngine.Random.Range(0, moes.Count);
-            if(letraCerta ==  randomMoe)
+            var randomMoe = 0;
+            var ok = false;
+            do
             {
-                certo = true;
-            }
+               randomMoe = UnityEngine.Random.Range(0, moes.Count);
+                if (randomMoe != letraCerta) ok = true;
+            } while (!ok);
             moeObj.GetComponent<SpriteRenderer>().sprite = moes[randomMoe];
         }
     }
