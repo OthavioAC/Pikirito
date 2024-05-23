@@ -30,6 +30,7 @@ public class NewEgg : MonoBehaviour
             egg.transform.position = new Vector2(0,0);  
             Instantiate(egg);
             game.GetComponent<Game>().piriquito = "Egg";
+            egg.GetComponent<Egg>().gameObjecte = game;
             game.GetComponent<Game>().newEgg.enabled = false;
         }
     }

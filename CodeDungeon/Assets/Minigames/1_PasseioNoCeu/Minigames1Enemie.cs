@@ -18,7 +18,7 @@ public class Minigames1Enemie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Destroy(gameObject,20);
         if(enId==enIdCerto)
         {
             moeObj.GetComponent<SpriteRenderer>().sprite = moes[letraCerta];
@@ -38,15 +38,21 @@ public class Minigames1Enemie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if(!spawner.GetComponent<Minigames1Spawn>().pausado) transform.position = new Vector3(transform.position.x, transform.position.y-Time.deltaTime*3);
     }
 
     public void Destruir()
     {
-        Destroy(gameObject);
-        spawner.GetComponent<Minigames1Spawn>().sinaisList.RemoveAt(0);
-        spawner.GetComponent<Minigames1Spawn>().points += 1;
+        if(gameObject!=null)
+        {
+            Destroy(gameObject);
+            spawner.GetComponent<Minigames1Spawn>().sinaisList.RemoveAt(0);
+            spawner.GetComponent<Minigames1Spawn>().points += 1;
+
+        }
     }
+
 
     public void Perder()
     {

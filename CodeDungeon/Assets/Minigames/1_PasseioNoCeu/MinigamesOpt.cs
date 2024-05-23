@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MinigamesOpt : MonoBehaviour
@@ -7,12 +8,22 @@ public class MinigamesOpt : MonoBehaviour
     public GameObject Cenario;
     public GameObject CenarioHud;
     public GameObject HudMinigames;
+    public GameObject game;
+
+    public TextMeshProUGUI minigame1Text;
+
 
 
     private void Start()
     {
         HudMinigames.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        minigame1Text.text = game.GetComponent<Game>().recordeMinigame1.ToString();
+    }
+
 
     public void HideCenario()
     {

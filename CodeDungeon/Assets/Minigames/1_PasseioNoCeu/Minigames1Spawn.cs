@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,12 @@ using UnityEngine.UI;
 public class Minigames1Spawn : MonoBehaviour
 {
 
+    public GameObject telaMinijogos;
+    public GameObject minigame;
+
+
+    public TextMeshProUGUI minigame1;
+    public GameObject game;
     public GameObject enemieObj;
     public GameObject imagemEmCima;
     public TextMeshProUGUI pointsText;
@@ -19,6 +26,7 @@ public class Minigames1Spawn : MonoBehaviour
     public List<int> sinaisList = new List<int>();
     private float tempo = 0;
     private float tempoToSpawn = 0;
+    public List<GameObject> inimigos = new List<GameObject>();
 
 
     public bool pausado = false;
@@ -52,19 +60,22 @@ public class Minigames1Spawn : MonoBehaviour
                 en1.GetComponent<Minigames1Enemie>().enIdCerto = randi;
                 en1.GetComponent<Minigames1Enemie>().letraCerta = randi2;
                 en1.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
-                Instantiate(en1, new Vector2(transform.position.x + 3, transform.position.y), Quaternion.identity);
+                var en1ins = Instantiate(en1, new Vector2(transform.position.x + 3, transform.position.y), Quaternion.identity);
+                inimigos.Add(en1ins);
                 var en2 = enemieObj;
                 en2.GetComponent<Minigames1Enemie>().enId = 2;
                 en2.GetComponent<Minigames1Enemie>().enIdCerto = randi;
                 en2.GetComponent<Minigames1Enemie>().letraCerta = randi2;
                 en2.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
-                Instantiate(en2, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                var en2ins = Instantiate(en2, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                inimigos.Add(en2ins);
                 var en3 = enemieObj;
                 en3.GetComponent<Minigames1Enemie>().enId = 3;
                 en3.GetComponent<Minigames1Enemie>().enIdCerto = randi;
                 en3.GetComponent<Minigames1Enemie>().letraCerta = randi2;
                 en3.GetComponent<Minigames1Enemie>().spawner = this.gameObject;
-                Instantiate(en3, new Vector2(transform.position.x - 3, transform.position.y), Quaternion.identity);
+                var en3ins = Instantiate(en3, new Vector2(transform.position.x - 3, transform.position.y), Quaternion.identity);
+                inimigos.Add(en3ins);
                 tempoToSpawn = 7;
 
                 sinaisList.Add(randi2);
@@ -105,8 +116,22 @@ public class Minigames1Spawn : MonoBehaviour
         }
     }
 
+    private void OnBecameVisible()
+    {
+        pausado = false;
+    }
+
+    private void OnEnable()
+    {
+        pausado = false;
+    }
+
     public void GameOver()
     {
+        if(game.GetComponent<Game>().recordeMinigame1<points)
+        {
+            game.GetComponent<Game>().recordeMinigame1 = points;
+        }
         pausado = true;
         derrotaText.SetActive(true);
         RestartBut.SetActive(true);
@@ -115,11 +140,36 @@ public class Minigames1Spawn : MonoBehaviour
 
     public void Restart()
     {
-
+        points = 0;
+        tempo = 0;
+        pausado = false;
+        derrotaText.SetActive(false);
+        RestartBut.SetActive(false);
+        BackBut.SetActive(false);
+        foreach (GameObject inimigo in inimigos)
+        {
+            if(inimigo!=null) Destroy(inimigo);
+        }
+        inimigos.Clear();
+        sinaisList.Clear();
     }
 
     public void Back()
     {
-
+        minigame1.text = game.GetComponent<Game>().recordeMinigame1.ToString();
+        pausado = true;
+        points = 0;
+        tempo = 0;
+        derrotaText.SetActive(false);
+        RestartBut.SetActive(false);
+        BackBut.SetActive(false);
+        foreach (GameObject inimigo in inimigos)
+        {
+            if (inimigo != null) Destroy(inimigo);
+        }
+        inimigos.Clear();
+        sinaisList.Clear();
+        minigame.SetActive(false);
+        telaMinijogos.SetActive(true);
     }
 }

@@ -19,6 +19,8 @@ public class GameData
     public int moedas;
     public bool tijelaEnxida;
     public List<int> FoodCount;
+    public int recordeMinigame1;
+    public int recordeMinigame2;
 
     public GameData() 
     {
@@ -34,5 +36,7 @@ public class GameData
         moedas = 0;
         tijelaEnxida = false;
         FoodCount = new List<int>();
+        recordeMinigame1 = 0;
+        recordeMinigame2 = 0;
     }
 }

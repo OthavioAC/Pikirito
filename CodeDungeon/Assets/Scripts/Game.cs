@@ -33,6 +33,8 @@ public class Game : MonoBehaviour, IDataPersistence
     [SerializeField] public List<Vector2> poops = new List<Vector2>();
     [SerializeField] public int moedas = 0;
     [SerializeField] public List<int> FoodCount = new List<int>();
+    [SerializeField] public int recordeMinigame1;
+    [SerializeField] public int recordeMinigame2;
 
     public List<GameObject> CocosInScreen = new List<GameObject>();
 
@@ -116,6 +118,8 @@ public class Game : MonoBehaviour, IDataPersistence
         this.moedas = data.moedas;
         this.FoodCount = data.FoodCount;
         this.tijelaEnxida = data.tijelaEnxida;
+        this.recordeMinigame1 = data.recordeMinigame1;
+        this.recordeMinigame2 = data.recordeMinigame2;
         ToStart();
     }
 
@@ -133,6 +137,8 @@ public class Game : MonoBehaviour, IDataPersistence
         data.moedas = this.moedas;
         data.FoodCount = this.FoodCount;
         data.tijelaEnxida = this.tijelaEnxida;
+        data.recordeMinigame1 = this.recordeMinigame1;
+        data.recordeMinigame2 = this.recordeMinigame2;
     }
 
 

@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45.7466}
-  m_SizeDelta: {x: 100, y: 207.7711}
+  m_AnchoredPosition: {x: 0.000030518, y: -32}
+  m_SizeDelta: {x: 202.7993, y: 275.4474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217951894
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7688679, g: 1, b: 0.88422453, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -370,7 +370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -23.400002}
+  m_AnchoredPosition: {x: 0, y: -60.2}
   m_SizeDelta: {x: 90, y: 37.018524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259028583
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7216981, g: 1, b: 0.9684172, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -442,8 +442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.299997, y: 1.8008974}
-  m_SizeDelta: {x: 14.00475, y: 14.00475}
+  m_AnchoredPosition: {x: 9.2, y: 1.5}
+  m_SizeDelta: {x: 8.45293, y: 9.99512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265328363
 MonoBehaviour:
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1553490541, guid: fafadd96ef88561418cfc4341dfaea8e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a044ebd3ab688f043bebfbe764841cb7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1144,6 +1144,8 @@ MonoBehaviour:
   Cenario: {fileID: 1244195816}
   CenarioHud: {fileID: 1631703427}
   HudMinigames: {fileID: 1773428421}
+  game: {fileID: 6655281972638078523}
+  minigame1Text: {fileID: 1351961621}
 --- !u!1 &730058974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +1878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e73bff7cfbc2574bad04358cb8ed44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  telaMinijogos: {fileID: 1773428421}
+  minigame: {fileID: 1672120270}
+  minigame1: {fileID: 1351961621}
+  game: {fileID: 6655281972638078523}
   enemieObj: {fileID: 2081596171866934534, guid: bc2f619a2b879164a9f4b21ca68faf94, type: 3}
   imagemEmCima: {fileID: 1841239420}
   pointsText: {fileID: 1349664829}
@@ -1884,6 +1890,7 @@ MonoBehaviour:
   points: 0
   derrotaText: {fileID: 303225039}
   sinaisList: 
+  inimigos: []
   pausado: 0
 --- !u!1 &1244195816
 GameObject:
@@ -5264,6 +5271,8 @@ MonoBehaviour:
   poops: []
   moedas: 0
   FoodCount: 
+  recordeMinigame1: 0
+  recordeMinigame2: 0
   CocosInScreen: []
 --- !u!114 &8459894128893457922
 MonoBehaviour:
