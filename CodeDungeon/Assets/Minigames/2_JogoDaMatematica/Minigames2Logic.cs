@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class Minigames2Logic : MonoBehaviour
 {
     public int points = 0;
+    public bool jogando = false;
 
     public TextMeshProUGUI valor1;
     public TextMeshProUGUI valor2;
@@ -18,10 +19,21 @@ public class Minigames2Logic : MonoBehaviour
     public TextMeshProUGUI resposta1;
     public TextMeshProUGUI resposta2;
     public TextMeshProUGUI resposta3;
+
+    public GameObject botBack;
+    public GameObject botPlay;
+    public GameObject derrota;
+    public TextMeshProUGUI pointsText;
+
+    public TextMeshProUGUI minigame2;
+    public GameObject game;
+    public GameObject minigame;
+    public GameObject telaMinijogos;
     // Start is called before the first frame update
     void Start()
     {
         GenerateQuest();
+        jogando = true;
     }
 
     // Update is called once per frame
@@ -56,7 +68,7 @@ public class Minigames2Logic : MonoBehaviour
             numMax = 10;
         }
         var valor1int = Random.Range(0, numMax + 1);
-        var valor2int = Random.Range(0, numMax + 1);
+        var valor2int = Random.Range(1, numMax + 1);
         var randomSinal = sinais[Random.Range(0, 4)];
         if(randomSinal=="+")
         {
@@ -83,7 +95,7 @@ public class Minigames2Logic : MonoBehaviour
                 else
                 {
                     valor1int = Random.Range(0, numMax + 1);
-                    valor2int = Random.Range(0, numMax + 1);
+                    valor2int = Random.Range(1, numMax + 1);
                 }
             } while (!ok);
         }
@@ -129,42 +141,91 @@ public class Minigames2Logic : MonoBehaviour
 
     public void ClicouNo1()
     {
-        if(alternativa == 1)
+        if(jogando)
         {
-            Debug.Log("Acertou");
-        }
-        else
-        {
-
-            Debug.Log("eRROU");
+            if (alternativa == 0)
+            {
+                Acertou();
+            }
+            else
+            {
+                Errou();
+            }
         }
     }
     public void ClicouNo2()
     {
-        if (alternativa == 2)
+        if (jogando)
         {
-            Debug.Log("Acertou");
-
-        }
-        else
-        {
-
-            Debug.Log("eRROU");
+            if (alternativa == 1)
+            {
+                Acertou();
+            }
+            else
+            {
+                Errou();
+            }
         }
 
     }
     public void ClicouNo3()
     {
-        if (alternativa == 3)
+        if (jogando)
         {
-            Debug.Log("Acertou");
-
+            if (alternativa == 2)
+            {
+                Acertou();
+            }
+            else
+            {
+                Errou();
+            }
         }
-        else
+
+    }
+
+    public void Acertou()
+    {
+        points += 1;
+        pointsText.text = points.ToString();
+        GenerateQuest();
+    }
+
+    public void Errou()
+    {
+        if (game.GetComponent<Game>().recordeMinigame2 < points)
         {
-            Debug.Log("eRROU");
-
+            game.GetComponent<Game>().recordeMinigame2 = points;
         }
+        jogando = false;
+        derrota.SetActive(true);
+        botBack.SetActive(true);
+        botPlay.SetActive(true);
 
+    }
+
+    public void Back()
+    {
+        minigame2.text = game.GetComponent<Game>().recordeMinigame2.ToString();
+        points = 0;
+        pointsText.text = points.ToString();
+        jogando = true;
+        derrota.SetActive(false);
+        botBack.SetActive(false);
+        botPlay.SetActive(false);
+        minigame.SetActive(false);
+        telaMinijogos.SetActive(true);
+        GenerateQuest();
+    }
+
+    public void Restart()
+    {
+        jogando = true;
+        points = 0;
+        pointsText.text = points.ToString();
+        derrota.SetActive(false);
+        botBack.SetActive(false);
+        botPlay.SetActive(false);
+        GenerateQuest();
     }
 }
