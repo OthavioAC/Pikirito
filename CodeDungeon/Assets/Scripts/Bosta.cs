@@ -12,30 +12,35 @@ public class Bosta : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            coin.GetComponent<AnimationCoinGain>().game = this.game;
-            Destroy(gameObject);
-            Instantiate(coin, transform.position ,Quaternion.identity);
+            DestruirCoco();
+        }
+    }
 
-            var ind = -1;
-            var i =0;
+    public void DestruirCoco()
+    {
+        coin.GetComponent<AnimationCoinGain>().game = this.game;
+        Destroy(gameObject);
+        Instantiate(coin, transform.position, Quaternion.identity);
 
-            foreach (GameObject poopObj in game.GetComponent<Game>().CocosInScreen)
+        var ind = -1;
+        var i = 0;
+
+        foreach (GameObject poopObj in game.GetComponent<Game>().CocosInScreen)
+        {
+            if (poopObj == this.gameObject)
             {
-                if (poopObj == this.gameObject)
-                {
-                    ind = i;
-                }
-                i++;
+                ind = i;
             }
-            if (ind >= 0)
-            {
-                game.GetComponent<Game>().poops.RemoveAt(ind);
-                game.GetComponent<Game>().CocosInScreen.RemoveAt(ind);
-            }
-            else
-            {
-                Debug.Log("erro");
-            }
+            i++;
+        }
+        if (ind >= 0)
+        {
+            game.GetComponent<Game>().poops.RemoveAt(ind);
+            game.GetComponent<Game>().CocosInScreen.RemoveAt(ind);
+        }
+        else
+        {
+            Debug.Log("erro");
         }
     }
 

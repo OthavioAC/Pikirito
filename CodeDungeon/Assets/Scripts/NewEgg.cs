@@ -27,10 +27,10 @@ public class NewEgg : MonoBehaviour
         if (game.GetComponent<Game>().piriquito != "Egg"&& game.GetComponent<Game>().piriquito != "Piriquito")
         {
             egg.GetComponent<Egg>().game = game;
+            egg.GetComponent<Egg>().gameObjecte = game;
             egg.transform.position = new Vector2(0,0);  
             Instantiate(egg); 
             game.GetComponent<Game>().piriquito = "Egg";
-            egg.GetComponent<Egg>().gameObjecte = game;
             game.GetComponent<Game>().newEgg.enabled = false;
         }
     }

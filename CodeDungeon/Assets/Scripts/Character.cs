@@ -20,6 +20,8 @@ public class Character : MonoBehaviour
     public GameObject banhoPart;
     public GameObject sujoPart;
 
+    public GameObject Pou;
+
     public List<ParticleSystem> emotesPart = new List<ParticleSystem>();
 
     public float velocidade = 5f; // Velocidade de movimento
@@ -112,6 +114,16 @@ public class Character : MonoBehaviour
 
         MachineState();
 
+        CheckEasterEggPou();
+
+    }
+
+    public void CheckEasterEggPou()
+    {
+        if(gameScript.CocosInScreen.Count>=100)
+        {
+            Pou.SetActive(true);
+        }
     }
 
     private Vector2 PosRandom()

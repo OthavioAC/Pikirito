@@ -6165,6 +6165,14 @@ PrefabInstance:
       value: Minigames2Logic, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 921811805000755939, guid: 9ce20ba024d875545bd9bf73aefe8c4e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 921811805000755939, guid: 9ce20ba024d875545bd9bf73aefe8c4e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 921811805000755939, guid: 9ce20ba024d875545bd9bf73aefe8c4e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -983
       objectReference: {fileID: 0}
