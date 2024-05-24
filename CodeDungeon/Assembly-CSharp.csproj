@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Balao.cs" />
     <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Minigames\2_JogoDaMatematica\Minigames2Logic.cs" />
     <Compile Include="Assets\Minigames\1_PasseioNoCeu\MinigamesOpt.cs" />
     <Compile Include="Assets\OldGame\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />

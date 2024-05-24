@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820802582479226972}
   m_Layer: 0
-  m_Name: 1_PasseioNoCeu
+  m_Name: 1_JogoDaLibras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
